@@ -1,9 +1,7 @@
 (function($){
+    $WIN = $(window)
 
-
-
-
-    (function ssInit() {
-
-    })();
+    // (function ssInit() {
+    //
+    // })();
 })(jQuery)

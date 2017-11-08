@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+}
+.header{
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    z-index: 99999;
+    display: block;
+    opacity: 1;
+    background-color: antiquewhite;
+}
+.first{
+    height:780px;
+    background-color: aquamarine;
+}
