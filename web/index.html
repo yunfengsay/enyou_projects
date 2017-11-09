@@ -6,26 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>恩友</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
 </head>
-<body class="">
-    <header class="header">header</header>
-    <section class="first">
-        first
+<body class="body">
+    <header id="header">
+        <a class="logo" href="/">
+            <img src="http://www.lingxi360.com/Application/Home/View/lx/styles/css/images/logo-dark.png" alt="">
+        </a>
+     <ul class="menu">
+         <li class="menu-item"><a href="#second">财务服务</a></li>
+         <li class="menu-item"><a href="#third">财务宝箱</a></li>
+         <li class="menu-item"><a href="#four">学习干货</a></li>
+         <li class="menu-item"><a href="#five">关于我们</a></li>
+     </ul>
+    </header>
+    <section id="first">
+        <div class="filter"></div>
+        <div class="first-content">
+            <div class="slogan  fadeInDownBig  animated">
+                <h3>专注财务领域 专业能力支持</h3>
+            </div>
+            <div class="purpose jackInTheBox animated">
+                通过为中国非营利组织提供财务管理的专业服务和支持，提升中国非营利组织的财务管理能力，促进中国非营利组织的公信力建设，推动中国公民社会的发展。
+            </div>
+        </div>
     </section>
-    <section class="second">
-        second
+    <section id="second">
+        <div class="test wow rollIn bg-blue">
+            <span>哈哈哈哈</span>
+        </div>
     </section>
-    <section class="third">
+    <section id="third">
         third
     </section>
-    <section class="four">
+    <section id="four">
         four
     </section>
-    <sction class="five">
+    <section id="five">
         five
-    </sction>
+    </section>
+    <div id="preloader" style="display: none;">
+        <div id="loader" style="display: none;"></div>
+    </div>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+        if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+            new WOW({
+            }).init();
+        };
+    </script>
 </body>
 </html>
