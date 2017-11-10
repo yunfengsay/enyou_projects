@@ -1,0 +1,12 @@
+.custom-navbar a {
+  color: #fff !important;
+}
+.custom-navbar a::after {
+  background-color: #fff !important;
+}
+.top-nav-collapse a {
+  color: #454545 !important;
+}
+.top-nav-collapse a::after {
+  background-color: #000000 !important;
+}
