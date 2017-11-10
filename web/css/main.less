@@ -1,0 +1,149 @@
+body{
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.body section{
+  height: 780px;
+}
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+
+#header{
+  position: fixed;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  z-index: 99999;
+  display: block;
+  opacity: 1;
+  background: none;
+  transition: all .8s ease;
+  a{
+    color: #fff;
+  }
+  &.lite-header{
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    /*border-bottom: 1px solid transparent;*/
+    background: rgba(255, 255, 255, 0.93);
+    border-color: rgba(0, 0, 0, 0.1);
+    a{color: #666;}
+  }
+  .menu{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    padding: 0;
+    color: #666;
+  }
+  .logo{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 80px;
+  }
+  .menu .menu-item{
+    position: relative;
+    float: left;
+    font-size: 18px;
+    margin-left: 70px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom .3s;
+  }
+  .menu .menu-item:after{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height:2px;
+    bottom: -5px;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
+    background: linear-gradient(to right, #E67207 0%, #EF4E7B 50%, #A166AB 100%);
+    // transform-origin: center;
+    transform: scaleX(0);
+    transition: transform .2s ease-out;
+  }
+  .menu .menu-item:hover:after{
+    transform:scaleX(1)
+  }
+}
+
+#first{
+  height:780px;
+  background-color: #F8F8F8;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  //background: url("../imgs/helloquence-51716.jpg");
+  background: url("../imgs/rawpixel-com-252130.jpg");
+  background-position:center;
+  background-attachment: fixed;
+  background-size:100vw auto;
+  .filter{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    z-index:0;
+
+  }
+  *:not(.filter){
+    z-index: 1;
+  }
+  .first-content{
+    margin-top: -300px;
+    .slogan{
+      color: #fff;
+      font-size: 36px;
+      h3{
+        text-align: center;
+      }
+    }
+    .purpose{
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+
+}
+#first h3{
+  animation: full-down 1s ease;
+}
+
+#second{
+  background-color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#third{
+  background-color: #A64452;
+}
+
+#four{
+  background-color: #F7C873;
+}
+#five{
+  background-color: #f78f18;
+}
+@keyframes full-down{
+  0%{
+    margin-top: -100px;
+    opacity: .6;
+    transform: scale(0.8);
+  }
+  100%{
+    margin-top: 15px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
