@@ -78,9 +78,6 @@ a {
   background-color: #F8F8F8;
   display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
-  background: url("../imgs/rawpixel-com-252130.jpg");
   background-position: center;
   background-attachment: fixed;
   background-size: 100vw auto;
@@ -96,13 +93,12 @@ a {
   z-index: 1;
 }
 #first .first-content {
-  margin-top: -300px;
+  margin: 0 auto;
 }
 #first .first-content .slogan {
+  margin-top: 200px;
   color: #fff;
   font-size: 36px;
-}
-#first .first-content .slogan h3 {
   text-align: center;
 }
 #first .first-content .purpose {
@@ -117,6 +113,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#second .second-content {
+  display: flex;
+}
+#second .second-content .card {
+  width: 380px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 #third {
   background-color: #A64452;

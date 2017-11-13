@@ -1,0 +1,46 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;enyou&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/.." />
+      <root url="file://$PROJECT_DIR$/../../position" />
+      <root url="file://$PROJECT_DIR$/../../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../.idea" />
+      <root url="file://$PROJECT_DIR$/../../learn" />
+      <root url="file://$PROJECT_DIR$/../../position_mongo" />
+      <root url="file://$PROJECT_DIR$/../../qiniupkg.com" />
+      <root url="file://$PROJECT_DIR$/../../position_pg" />
+      <root url="file://$PROJECT_DIR$/../../urlLike" />
+      <root url="file://$PROJECT_DIR$/../../WebIM" />
+      <root url="file://$PROJECT_DIR$/../../shorturl" />
+      <root url="file://$PROJECT_DIR$/../../github.com" />
+      <root url="file://$PROJECT_DIR$/../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../position_api" />
+      <root url="file://$PROJECT_DIR$/../../samples" />
+      <root url="file://$PROJECT_DIR$/../../todo" />
+      <root url="file://$PROJECT_DIR$/../../gopkg.in" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/.." />
+      <root url="file://$PROJECT_DIR$/../../position" />
+      <root url="file://$PROJECT_DIR$/../../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../.idea" />
+      <root url="file://$PROJECT_DIR$/../../learn" />
+      <root url="file://$PROJECT_DIR$/../../position_mongo" />
+      <root url="file://$PROJECT_DIR$/../../qiniupkg.com" />
+      <root url="file://$PROJECT_DIR$/../../position_pg" />
+      <root url="file://$PROJECT_DIR$/../../urlLike" />
+      <root url="file://$PROJECT_DIR$/../../WebIM" />
+      <root url="file://$PROJECT_DIR$/../../shorturl" />
+      <root url="file://$PROJECT_DIR$/../../github.com" />
+      <root url="file://$PROJECT_DIR$/../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../position_api" />
+      <root url="file://$PROJECT_DIR$/../../samples" />
+      <root url="file://$PROJECT_DIR$/../../todo" />
+      <root url="file://$PROJECT_DIR$/../../gopkg.in" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

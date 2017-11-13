@@ -1,13 +1,16 @@
-package server
+package main
+
 import (
-	"net/http"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"projects/enyou/server/router"
 )
 
-func main(){
-	router := gin.Default()
-	router.GET("/", func(c *gin.Context) {
+func main() {
+	commonRouter := gin.Default()
+	commonRouter.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "ok")
 	})
-	router.Run(":8000")
+	commonRouter.POST("/login", router.Login)
+	commonRouter.Run(":8000")
 }
