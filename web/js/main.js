@@ -15,14 +15,8 @@
 
 
 
-
-
-
-
-
-
-
-    var ssPreloader = function() {
+    var ssPreloa
+    der = function() {
 
         $WIN.on('load', function() {
             console.log("loading")

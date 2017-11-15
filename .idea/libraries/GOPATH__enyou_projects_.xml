@@ -19,8 +19,5 @@
       <root url="file://$PROJECT_DIR$/../../sourcegraph.com" />
       <root url="file://$PROJECT_DIR$/../../qiniupkg.com" />
     </SOURCES>
-    <excluded>
-      <root url="file://$PROJECT_DIR$" />
-    </excluded>
   </library>
 </component>
