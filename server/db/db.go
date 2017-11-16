@@ -22,6 +22,7 @@ func init() {
 		Username: "admin",
 		Password: "yunfeng0409",
 	}
+
 	MongoSession, err := mgo.DialWithInfo(diaInfo)
 	if err != nil {
 		fmt.Println("错误❌", err)
