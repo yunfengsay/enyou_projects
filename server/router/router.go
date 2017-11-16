@@ -5,5 +5,8 @@ import (
 )
 
 func Login(c *gin.Context) {
+	var json LoginStruct
+	if err := c.ShouldBindJSON(&json); err == nil {
 
+	}
 }
