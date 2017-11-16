@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
-	"position_mongo/models"
 	"projects/enyou/server/router"
 
 	"github.com/gin-gonic/gin"
@@ -11,13 +9,13 @@ import (
 
 func AuthNeedLogin() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		token := c.Request.Header.Get("token")
-		fmt.Println(token)
-		if token == "" {
-			c.AbortWithStatus(400)
-		}
-		id := models.GetUserIdByToken(token)
-		c.Set("userid", id)
+		// token := c.Request.Header.Get("token")
+		// fmt.Println(token)
+		// if token == "" {
+		// 	c.AbortWithStatus(400)
+		// }
+		// id := models.GetUserIdByToken(token)
+		// c.Set("userid", id)
 		c.Next()
 	}
 }
