@@ -7,3 +7,9 @@
 .top-nav-collapse a::after {
   background-color: #000000 !important;
 }
+.logo {
+  width: 78px;
+  height: 93px;
+  position: absolute;
+  top: 0;
+}

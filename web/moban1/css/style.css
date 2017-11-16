@@ -110,18 +110,18 @@ a:focus {
   margin: 0;
   padding-bottom: 32px;
 }
-#about,
-#work,
+#first,
+#third,
 #contact {
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px;
 }
-#about img,
+#first img,
 #team img {
   border-radius: 5px;
 }
-#work {
+#third {
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
 }
@@ -257,7 +257,7 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: #242a2f;
+  background-color: #1A1A1A;
   height: 100vh;
   position: relative;
   padding-top: 62px;
@@ -280,56 +280,55 @@ a:focus {
 -----------------------------------------*/
 #first {
   min-height: 500px;
-  background-color: orange;
 }
 /*---------------------------------------
-  About section              
+  first section              
 -----------------------------------------*/
-#about .section-title {
+#first .section-title {
   padding-bottom: 16px;
 }
-#about .col-md-4 a {
+#first .col-md-4 a {
   width: 100px;
   height: 100px;
   display: inline-block;
   margin: 6px 6px 0px 0;
 }
-#about .about-thumb {
+#first .first-thumb {
   margin-top: 22px;
 }
-#about .about-thumb strong {
+#first .first-thumb strong {
   font-weight: normal;
   display: block;
   padding-top: 4px;
 }
 /*---------------------------------------
-  Skill section              
+  second section              
 -----------------------------------------*/
-#skill {
+#second {
   border-top: 1px solid #f0f0f0;
   padding-top: 80px;
   padding-bottom: 60px;
 }
-.skill-thumb strong,
-.skill-thumb span {
+.second-thumb strong,
+.second-thumb span {
   color: #575757;
   font-size: 16px;
   padding-bottom: 8px;
   display: inline-block;
 }
-.skill-thumb .progress {
+.second-thumb .progress {
   background: #ffffff;
   border-radius: 5px;
   box-shadow: none;
   height: 4px;
 }
-.skill-thumb .progress-bar-primary {
+.second-thumb .progress-bar-primary {
   background: #3d3d3f;
 }
 /*---------------------------------------
-  Work section              
+  third section              
 -----------------------------------------*/
-#work .work-thumb {
+#third .third-thumb {
   border-radius: 5px;
   margin-bottom: 15px;
   padding: 0;
@@ -339,12 +338,12 @@ a:focus {
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 }
-#work .work-thumb:hover {
+#third .third-thumb:hover {
   background: #ffffff;
   box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
   top: -5px;
 }
-#work .work-thumb img {
+#third .third-thumb img {
   border-radius: 5px;
 }
 /*---------------------------------------
@@ -436,7 +435,7 @@ a:focus {
   h1 {
     font-size: 33px;
   }
-  #work .work-thumb {
+  #third .third-thumb {
     margin-top: 30px;
   }
 }
@@ -463,10 +462,10 @@ a:focus {
   }
 }
 @media (max-width: 580px) {
-  #about .about-thumb {
+  #first .first-thumb {
     margin-top: 0px;
   }
-  .about-thumb .social-icon {
+  .first-thumb .social-icon {
     margin-bottom: 15px;
   }
 }
@@ -474,7 +473,7 @@ a:focus {
   h1 {
     font-size: 28px;
   }
-  #about .col-md-4 a {
+  #first .col-md-4 a {
     width: 85px;
     height: 85px;
   }
