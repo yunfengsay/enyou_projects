@@ -21,9 +21,10 @@ func AuthNeedLogin() gin.HandlerFunc {
 }
 func main() {
 	commonRouter := gin.Default()
+	commonRouter.LoadHTMLGlob("static/*")
 	commonRouter.Use(AuthNeedLogin())
 	commonRouter.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "ok")
+		c.HTML(http.StatusOK, "index.html", nil)
 	})
 	commonRouter.POST("/login", router.Login)
 	commonRouter.Run(":8000")
