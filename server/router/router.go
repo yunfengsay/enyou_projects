@@ -1,11 +1,13 @@
 package router
 
 import (
+	"projects/enyou/server/model"
+
 	"github.com/gin-gonic/gin"
 )
 
 func Login(c *gin.Context) {
-	var json LoginStruct
+	var json model.UserStruct
 	if err := c.ShouldBindJSON(&json); err == nil {
 
 	}

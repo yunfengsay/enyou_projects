@@ -1,6 +1,8 @@
 package db
 
 import (
+	"fmt"
+
 	"gopkg.in/mgo.v2"
 )
 
@@ -15,7 +17,17 @@ var MongoSession *mgo.Session
 var DB *mgo.Database
 
 func init() {
-	MongoSession, _ = mgo.Dial(MONGO_URL)
+	diaInfo := &mgo.DialInfo{
+		Addrs:    []string{MONGO_URL},
+		Username: "admin",
+		Password: "yunfeng0409",
+	}
+	MongoSession, err := mgo.DialWithInfo(diaInfo)
+	if err != nil {
+		fmt.Println("错误❌", err)
+	} else {
+		fmt.Println("👌数据库链接成功")
+	}
 	//切换到数据库
 	DB = MongoSession.DB("enyouIndex")
 	//切换到collection
