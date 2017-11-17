@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>恩友后台系统</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>恩友后台系统</title>
+  <link rel="stylesheet" href="/static/css/muse-ui.css">
+  <link rel="stylesheet" href="/static/css/theme-default.css">
+  <link rel="stylesheet" href="https://fonts.cat.net/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://fonts.cat.net/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/static/css/main.css">
 </head>
+
 <body>
-    ok
+  <div id="app" class="">
+    <div class="login-container">
+      <div class="inputs">
+        <mu-text-field v-model=user.user_name label="用户名"   hintText="用户名" errorText="这是必填项"></mu-text-field> <br>
+        <mu-text-field v-model=user.pwd @keyup.enter.native="login" label="密码" hintText="请输入密码" type="password" labelFloat/></mu-text-field>
+      </div>
+      <div class="button">
+          <mu-raised-button @mouseup.native="login" label="登 录" fullWidth/>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+  <script src="/static/js/muse-ui.js"></script>
+  <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        user:{
+          user_name: "",
+          pwd: "",
+        }
+      },
+      methods: {
+        login(){
+          fetch("/login",{
+            method: "POST",
+            body: this.user
+          })
+        }
+      }
+    })
+  </script>
 </body>
+
 </html>

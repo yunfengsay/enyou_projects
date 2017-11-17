@@ -33,7 +33,3 @@ while 1:
         break
     p = pq(html)
     page += 1
-    
-    
-
-

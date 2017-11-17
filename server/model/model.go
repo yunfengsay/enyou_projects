@@ -17,7 +17,7 @@ type UserStruct struct {
 type Artical struct {
 	Id    bson.ObjectId `bson:"_id"`
 	Title string        `json:"title"`
-	url   string        `json:"url"`
+	Url   string        `json:"url"`
 }
 
 func AddUser(user *UserStruct) (err error) {
@@ -41,16 +41,16 @@ func UserLogin(user string, pwd string) bool {
 
 func AddArtical(artical *Artical) (err error) {
 	artical.Id = bson.NewObjectId()
-	err = db.Ariticals.Insert(artical)
+	err = db.Articals.Insert(artical)
 	return
 }
 
 func DelArtical(id string) (err error) {
-	err = db.Ariticals.Remove(bson.M{"id": bson.ObjectIdHex(id)})
+	err = db.Articals.Remove(bson.M{"id": bson.ObjectIdHex(id)})
 	return
 }
 
 func GetAllArtical() (articals []Artical, err error) {
-	err = db.Ariticals.Find(nil).All(&articals)
+	err = db.Articals.Find(nil).All(&articals)
 	return
 }
