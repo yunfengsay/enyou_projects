@@ -22,6 +22,7 @@ type Artical struct {
 
 func AddUser(user *UserStruct) (err error) {
 	user.Pwd = tool.GetMd5(user.Pwd)
+	user.Id = bson.NewObjectId()
 	err = db.User.Insert(user)
 	return
 }
@@ -39,6 +40,7 @@ func UserLogin(user string, pwd string) bool {
 }
 
 func AddArtical(artical *Artical) (err error) {
+	artical.Id = bson.NewObjectId()
 	err = db.Ariticals.Insert(artical)
 	return
 }
