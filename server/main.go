@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"projects/enyou/server/conf"
 	"projects/enyou/server/router"
 
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,7 @@ func AuthNeedLogin() gin.HandlerFunc {
 	}
 }
 func main() {
+	conf.ReadConf()
 	commonRouter := gin.Default()
 	commonRouter.LoadHTMLGlob("static/*.html")
 	commonRouter.Static("/static", "static")
@@ -28,5 +30,5 @@ func main() {
 	})
 	commonRouter.POST("/login", router.Login)
 	commonRouter.GET("/articals", AuthNeedLogin(), router.GetArticals)
-	commonRouter.Run(":8000")
+	commonRouter.Run(":" + conf.ConfigContext.ServerPort)
 }

@@ -2,12 +2,16 @@ package db
 
 import (
 	"fmt"
+	"projects/enyou/server/conf"
 
 	"gopkg.in/mgo.v2"
 )
 
-const (
-	MONGO_URL = "115.159.58.205:27017"
+var (
+	MONGO_URL = conf.ConfigContext.MgoUrl
+	DBName    = conf.ConfigContext.DBName
+	DBUser    = conf.ConfigContext.DBUser
+	DBPwd     = conf.ConfigContext.DBPwd
 )
 
 // User 用表
@@ -17,13 +21,13 @@ var Articals *mgo.Collection
 var MongoSession *mgo.Session
 var DB *mgo.Database
 
-func init() {
+func main() {
 	diaInfo := &mgo.DialInfo{
 		Addrs:    []string{MONGO_URL},
-		Username: "admin",
-		Password: "yunfeng0409",
+		Username: DBUser,
+		Password: DBPwd,
 	}
-
+	fmt.Println(DBName, DBUser, DBPwd)
 	MongoSession, err := mgo.DialWithInfo(diaInfo)
 	defer MongoSession.Clone()
 	if err != nil {
@@ -32,7 +36,7 @@ func init() {
 		fmt.Println("👌数据库链接成功")
 	}
 	//切换到数据库
-	DB = MongoSession.DB("enyouIndex")
+	DB = MongoSession.DB(DBName)
 	//切换到collection
 	User = DB.C("users")
 	Articals = DB.C("articals")

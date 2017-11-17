@@ -1,0 +1,30 @@
+package conf
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
+
+type Config struct {
+	AdminUser  string
+	AdminPwd   string
+	MgoUrl     string
+	DBUser     string
+	DBPwd      string
+	ServerPort string
+	DBName     string
+}
+
+var ConfigContext Config
+
+func ReadConf() {
+	file, _ := os.Open("conf.json")
+	decoder := json.NewDecoder(file)
+	ConfigContext = Config{}
+	err := decoder.Decode(&ConfigContext)
+	if err != nil {
+		fmt.Println("读取配置文件 conf.json 错误错误❌")
+	}
+	fmt.Println(ConfigContext)
+}

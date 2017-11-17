@@ -10,9 +10,10 @@ import (
 
 func Login(c *gin.Context) {
 	var json model.UserStruct
-	fmt.Println(json)
 	if err := c.BindJSON(&json); err == nil {
 		pwdMd5 := tool.GetMd5(json.Pwd)
+		fmt.Println(pwdMd5)
+		fmt.Println(json)
 		isAuth := model.UserLogin(json.UserName, pwdMd5)
 		fmt.Println(isAuth)
 	}

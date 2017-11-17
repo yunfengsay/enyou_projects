@@ -1,0 +1,9 @@
+{
+    "AdminUser": "admin",
+    "AdminPwd": "admin",
+    "DBUrl": "115.159.58.205:27017",
+    "DBName": "enyouindex",
+    "DBUser": "yunfeng",
+    "DBPwd": "yunfeng0409",
+    "ServerPort": "8000"
+}

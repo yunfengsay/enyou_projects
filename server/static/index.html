@@ -42,7 +42,7 @@
         login(){
           fetch("/login",{
             method: "POST",
-            body: this.user
+            body:JSON.stringify(this.user)
           })
         }
       }
