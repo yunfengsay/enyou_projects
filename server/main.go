@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"projects/enyou/server/conf"
+	"projects/enyou/server/db"
 	"projects/enyou/server/router"
 
 	"github.com/gin-gonic/gin"
@@ -22,6 +23,7 @@ func AuthNeedLogin() gin.HandlerFunc {
 }
 func main() {
 	conf.ReadConf()
+	db.MakeDataBase()
 	commonRouter := gin.Default()
 	commonRouter.LoadHTMLGlob("static/*.html")
 	commonRouter.Static("/static", "static")

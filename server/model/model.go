@@ -28,7 +28,8 @@ func AddUser(user *UserStruct) (err error) {
 }
 
 func UserLogin(user string, pwd string) bool {
-	count, err := db.User.Find(bson.M{"user_name": user}).Count()
+	fmt.Println("user ", user)
+	count, err := db.User.Find(bson.M{"username": user, "pwd": pwd}).Count()
 	if err != nil {
 		fmt.Println("User login error")
 	}

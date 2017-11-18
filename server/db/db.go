@@ -4,30 +4,38 @@ import (
 	"fmt"
 	"projects/enyou/server/conf"
 
+	"projects/enyou/server/tool"
+
 	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
 
-var (
-	MONGO_URL = conf.ConfigContext.MgoUrl
-	DBName    = conf.ConfigContext.DBName
-	DBUser    = conf.ConfigContext.DBUser
-	DBPwd     = conf.ConfigContext.DBPwd
-)
+type UserStruct struct {
+	Id       bson.ObjectId `bson:"_id"`
+	UserName string        `json:"user_name"`
+	Pwd      string        `json:"pwd"`
+}
 
-// User 用表
 var User *mgo.Collection
 var Articals *mgo.Collection
 
 var MongoSession *mgo.Session
 var DB *mgo.Database
 
-func main() {
+func MakeDataBase() {
+	var (
+		DBUrl     = conf.ConfigContext.DBUrl
+		DBName    = conf.ConfigContext.DBName
+		DBUser    = conf.ConfigContext.DBUser
+		DBPwd     = conf.ConfigContext.DBPwd
+		AdminUser = conf.ConfigContext.AdminUser
+		AdminPwd  = conf.ConfigContext.AdminPwd
+	)
 	diaInfo := &mgo.DialInfo{
-		Addrs:    []string{MONGO_URL},
+		Addrs:    []string{DBUrl},
 		Username: DBUser,
 		Password: DBPwd,
 	}
-	fmt.Println(DBName, DBUser, DBPwd)
 	MongoSession, err := mgo.DialWithInfo(diaInfo)
 	defer MongoSession.Clone()
 	if err != nil {
@@ -40,4 +48,11 @@ func main() {
 	//切换到collection
 	User = DB.C("users")
 	Articals = DB.C("articals")
+	User.Remove(nil)
+	user := UserStruct{}
+	user.Pwd = tool.GetMd5(AdminPwd)
+	user.UserName = AdminUser
+	user.Id = bson.NewObjectId()
+	fmt.Println("😄 ", &user)
+	User.Insert(&user)
 }

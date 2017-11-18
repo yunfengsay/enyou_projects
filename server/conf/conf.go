@@ -9,7 +9,7 @@ import (
 type Config struct {
 	AdminUser  string
 	AdminPwd   string
-	MgoUrl     string
+	DBUrl      string
 	DBUser     string
 	DBPwd      string
 	ServerPort string
@@ -26,5 +26,4 @@ func ReadConf() {
 	if err != nil {
 		fmt.Println("读取配置文件 conf.json 错误错误❌")
 	}
-	fmt.Println(ConfigContext)
 }

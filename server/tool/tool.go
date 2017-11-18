@@ -8,6 +8,8 @@ import (
 
 var salt = "oifjiejnabpoe[fjovni"
 
+var Sessions = new(map[string]string)
+
 func GetMd5(str string) string {
 	w := md5.New()
 	io.WriteString(w, str+salt)              //加盐 将str写入到w中

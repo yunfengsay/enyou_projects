@@ -3,7 +3,7 @@
     "AdminPwd": "admin",
     "DBUrl": "115.159.58.205:27017",
     "DBName": "enyouindex",
-    "DBUser": "yunfeng",
+    "DBUser": "admin",
     "DBPwd": "yunfeng0409",
     "ServerPort": "8000"
 }
