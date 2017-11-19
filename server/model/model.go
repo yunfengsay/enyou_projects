@@ -47,11 +47,16 @@ func AddArtical(artical *Artical) (err error) {
 }
 
 func DelArtical(id string) (err error) {
-	err = db.Articals.Remove(bson.M{"id": bson.ObjectIdHex(id)})
+	err = db.Articals.Remove(bson.M{"_id": bson.ObjectIdHex(id)})
 	return
 }
 
 func GetAllArtical() (articals []Artical, err error) {
 	err = db.Articals.Find(nil).All(&articals)
+	return
+}
+
+func ModifyArtical(artical *Artical) (err error) {
+	err = db.Articals.Update(bson.M{"_id": artical.Id}, artical)
 	return
 }

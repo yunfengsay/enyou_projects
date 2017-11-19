@@ -3,6 +3,10 @@
   width: 100vw;
   display: flex;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
 .login-container {
   margin: 0 auto;
   margin-top: 200px;
@@ -14,4 +18,44 @@
 }
 .login-container .button button {
   width: 100%;
+}
+.index-container .header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #7e57c2;
+  width: 100%;
+}
+.index-container .body {
+  margin-top: 60px;
+  display: flex;
+  width: 100%;
+}
+.index-container .body .left {
+  width: 40%;
+  background: #f3f3f3;
+}
+.index-container .body .left .url-item {
+  display: flex;
+  justify-content: space-between;
+}
+.index-container .body .left .url-item .controls {
+  margin: 10px;
+}
+.index-container .body .left .url-item .controls i {
+  cursor: pointer;
+}
+.index-container .body .right {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.index-container .body .right .inputs {
+  margin-top: 150px;
+}
+.index-container ul li {
+  text-decoration: none;
+  list-style: none;
 }

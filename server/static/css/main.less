@@ -3,6 +3,10 @@
     width: 100vw;
     display: flex;
 }
+body{
+    margin: 0;
+    padding: 0;
+}
 .login-container{
     margin: 0 auto;
     margin-top: 200px;
@@ -16,4 +20,49 @@
             width: 100%
         }
     }
+}
+.index-container{
+    .header{
+        height: 60px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color:#7e57c2;
+        width: 100%
+    }
+    .body{
+        margin-top: 60px;
+        display: flex;
+        width: 100%;
+        .left{
+            width: 40%;
+            background: #f3f3f3;
+            .url-item{
+                display: flex;
+                justify-content: space-between;
+                .controls{
+                    margin: 10px;
+                    i{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .right{
+            width: 60%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .inputs{
+                margin-top: 150px;
+            }
+        }
+    }
+    ul{
+        li{
+            text-decoration: none;
+            list-style:none;  
+        }
+    }
+
 }

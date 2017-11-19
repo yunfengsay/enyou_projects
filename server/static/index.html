@@ -14,16 +14,42 @@
 </head>
 
 <body>
-  <div id="app" class="">
-    <div class="login-container">
-      <div class="inputs">
-        <mu-text-field v-model=user.user_name label="用户名"   hintText="用户名" errorText="这是必填项"></mu-text-field> <br>
-        <mu-text-field v-model=user.pwd @keyup.enter.native="login" label="密码" hintText="请输入密码" type="password" labelFloat/></mu-text-field>
-      </div>
-      <div class="button">
-          <mu-raised-button @mouseup.native="login" label="登 录" fullWidth/>
-      </div>
+  <div id="app" class="index-container">
+    <mu-dialog :open="deleteDialog" title="Dialog" @close="deleteDialog = false">
+      您确定要删除
+      <mu-flat-button slot="actions" @click="deleteDialog = false" primary label="取消"></mu-flat-button>
+      <mu-flat-button slot="actions" primary @click="deleteArtical" label="确定"></mu-flat-button>
+    </mu-dialog>
+    <div class="header">
 
+    </div>
+    <div class="body">
+      <div class="left">
+        <div class="search">
+          <mu-text-field v-model=searchWord></mu-text-field> <br>
+        </div>
+        <ul class="urls">
+          <li class="url-item" v-for="v in coumputedArticals">
+            <a target="_blank" :href="v.url">
+              <span>{{ v.title}}</span>
+            </a>
+            <div class="controls">
+              <mu-icon value="edit" color="grey"></mu-icon>
+              <mu-icon value="delete" @mouseup.native="deleteDialog = true;deleteItem = v" color="grey"></mu-icon>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="inputs">
+          <mu-text-field labelFloat="true" v-model=newAritcal.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
+          <mu-text-field labelFloat="true" v-model=newAritcal.url @keyup.enter.native="addArticla" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
+        </div>
+        <div class="button">
+          <mu-raised-button @mouseup.native="addArticla" label="添 加" fullWidth/>
+        </div>
+        <mu-toast v-if="toast" @close="hideToast" :message="message" />
+      </div>
     </div>
   </div>
   <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
@@ -33,17 +59,101 @@
     var app = new Vue({
       el: '#app',
       data: {
-        user:{
-          user_name: "",
-          pwd: "",
-        }
+        newAritcal: {
+          title: "",
+          url: "",
+        },
+        toast: false,
+        coumputedArticals: [],
+        deleteDialog: false,
+        deleteItem: null,
+        searchWord: "",
       },
       methods: {
-        login(){
-          fetch("/login",{
-            method: "POST",
-            body:JSON.stringify(this.user)
+        resetArtical(that){
+          var that = that||this
+          that.newAritcal = {
+            title: "",
+          url: "",
+          }
+        },
+        showToast(message) {
+          this.message = message;
+          this.toast = true;
+        },
+        hideToast() {
+          this.toast = false
+        },
+        filterByWord(array, word) {
+          if (!Array.isArray(array)) {
+            return
+          }
+          let newArray = []
+          for (var i = 0; i < array.length; i++) {
+            let item = array[i]
+            if (item.title.indexOf(word) != -1) {
+              newArray.push(item)
+            }
+          }
+          return newArray
+        },
+        getAllUrls() {
+          let that = this
+          fetch("/articals").then(res => {
+            res.json().then(data => {
+              that.articals = data.data
+
+            })
           })
+        },
+        addArticla() {
+          let that = this
+          fetch('/articals/add', {
+            method: "POST",
+            body: JSON.stringify(this.newAritcal)
+          }).then(res => {
+            res.json().then(data => {
+              if (data.ok) {
+                that.showToast("添加成功")
+                that.resetArtical()
+                that.getAllUrls()
+              }
+            })
+          })
+        },
+        deleteArtical(id) {
+          let that = this
+          fetch("/articals/" + that.deleteItem.Id, {
+            method: "DELETE"
+          }).then(res => {
+            res.json().then(data => {
+              if (data.ok) {
+                that.showToast("删除成功")
+                that.deleteDialog = false
+                that.getAllUrls()
+              }
+            })
+          })
+        }
+      },
+      mounted: function () {
+        this.getAllUrls()
+      },
+      watch: {
+        searchWord(newV){
+          console.log(newV)
+        }
+      },
+      computed: {
+        coumputedArticals: function () {
+          // var articals = this.filterByWord(this.articals, this.searchWord)
+          // console.log(articals)
+          // return articals
+          // console.log(this.searchWord)
+          // return this.articals.filter(v=>{
+          //   return title.indexOf(this.searchWord) != -1
+          // })
+          return this.searchWord?this.articals.filter(v=> title.indexOf(this.searchWord) != -1):[]
         }
       }
     })

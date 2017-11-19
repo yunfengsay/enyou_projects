@@ -29,16 +29,94 @@ func Login(c *gin.Context) {
 			}
 		}
 		if !isFindCookie {
-			var newCookie http.Cookie
-			newCookie.Name = "en_session"
-			newCookie.Value = cookie
-			http.SetCookie(c.Writer, &newCookie) // 这里为什么是 & 不是 *
-			fmt.Println("set cookie ----> ", newCookie)
+			http.SetCookie(c.Writer, &http.Cookie{
+				Name:    "en_session",
+				Value:   cookie,
+				Expires: time.Now().Add(10 * time.Second),
+			})
 		}
-		c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
+		// c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
+		if isAuth {
+			c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
+			// c.Redirect(http.StatusMovedPermanently, "/")
+		} else {
+			c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "用户名或密码错误"})
+		}
 	}
 }
 
 func GetArticals(c *gin.Context) {
-	return
+	articals, err := model.GetAllArtical()
+	if err != nil {
+		fmt.Println(err)
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": err,
+		})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"ok":   true,
+		"data": articals,
+	})
+}
+
+func AddArtical(c *gin.Context) {
+	var artical model.Artical
+	if err := c.BindJSON(&artical); err == nil {
+		e := model.AddArtical(&artical)
+		if e != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": e,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok": true,
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
+		})
+	}
+}
+
+func ModifyArtical(c *gin.Context) {
+	var artical model.Artical
+	if err := c.BindJSON(&artical); err == nil {
+		e := model.ModifyArtical(&artical)
+		if e != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": e,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok": true,
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
+		})
+	}
+}
+
+func DeleteArtical(c *gin.Context) {
+	id := c.Param("id")
+	err := model.DelArtical(id)
+	fmt.Println(err)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": err,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok": true,
+		})
+	}
 }
