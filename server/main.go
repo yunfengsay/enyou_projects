@@ -40,9 +40,9 @@ func main() {
 	})
 
 	commonRouter.POST("/login", router.Login)
-	commonRouter.GET("/articals", AuthNeedLogin(), router.GetArticals)
-	commonRouter.POST("/articals/add", AuthNeedLogin(), router.AddArtical)
-	commonRouter.PUT("/articals/modify", AuthNeedLogin(), router.ModifyArtical)
+	commonRouter.GET("/articals", router.GetArticals)
+	commonRouter.POST("/articals", AuthNeedLogin(), router.AddArtical)
+	commonRouter.PUT("/articals", AuthNeedLogin(), router.ModifyArtical)
 	commonRouter.DELETE("/articals/:id", AuthNeedLogin(), router.DeleteArtical)
 	commonRouter.Run(":" + conf.ConfigContext.ServerPort)
 }

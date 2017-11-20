@@ -15,26 +15,41 @@
 
 <body>
   <div id="app" class="index-container">
-    <mu-dialog :open="deleteDialog" title="Dialog" @close="deleteDialog = false">
-      您确定要删除
+    <mu-dialog :open="deleteDialog" title="删除" @close="deleteDialog = false">
+      您确定要删除  <span style="color:brown"> {{deleteItem.title}}</span>?
       <mu-flat-button slot="actions" @click="deleteDialog = false" primary label="取消"></mu-flat-button>
       <mu-flat-button slot="actions" primary @click="deleteArtical" label="确定"></mu-flat-button>
     </mu-dialog>
+    <mu-dialog :open="editDialog" title="修改" @close="editDialog = false">
+        <div class="inputs">
+            <mu-text-field required labelFloat="true" v-model=editItem.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
+            <mu-text-field labelFloat="true" v-model=editItem.url @keyup.enter.native="editUrl" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
+          </div>
+        <mu-flat-button slot="actions" @click="editDialog = false" primary label="取消"></mu-flat-button>
+        <mu-flat-button slot="actions" primary @click="editUrl" label="确定"></mu-flat-button>
+      </mu-dialog>
     <div class="header">
-
+        <a href="/">
+          <img class="logo" src="/static/imgs/logo.png" alt="">
+        </a>
+        <mu-card-header class="user-icon" title="" subTitle="">
+            <mu-avatar src="/static/imgs/default.png" slot="avatar"/>
+        </mu-card-header>
     </div>
     <div class="body">
       <div class="left">
         <div class="search">
-          <mu-text-field v-model=searchWord></mu-text-field> <br>
+          <mu-text-field icon="search" v-model=searchWord></mu-text-field>
         </div>
+       <span v-show=false>{{coumputedArticals}}</span> 
+        
         <ul class="urls">
           <li class="url-item" v-for="v in coumputedArticals">
             <a target="_blank" :href="v.url">
               <span>{{ v.title}}</span>
             </a>
             <div class="controls">
-              <mu-icon value="edit" color="grey"></mu-icon>
+              <mu-icon value="edit" @mouseup.native="editDialog = true;editItem = Object.assign({}, v)"  color="grey"></mu-icon>
               <mu-icon value="delete" @mouseup.native="deleteDialog = true;deleteItem = v" color="grey"></mu-icon>
             </div>
           </li>
@@ -63,18 +78,20 @@
           title: "",
           url: "",
         },
+        editDialog: false,
+        articals: [],
         toast: false,
-        coumputedArticals: [],
         deleteDialog: false,
-        deleteItem: null,
+        deleteItem: {},
         searchWord: "",
+        editItem: {}
       },
       methods: {
         resetArtical(that){
           var that = that||this
           that.newAritcal = {
             title: "",
-          url: "",
+            url: "",
           }
         },
         showToast(message) {
@@ -102,13 +119,16 @@
           fetch("/articals").then(res => {
             res.json().then(data => {
               that.articals = data.data
-
             })
           })
         },
         addArticla() {
           let that = this
-          fetch('/articals/add', {
+          if(this.newAritcal.title==""|| this.newAritcal.url==""){
+            that.showToast("标题和链接不能为空")
+            return
+          }
+          fetch('/articals', {
             method: "POST",
             body: JSON.stringify(this.newAritcal)
           }).then(res => {
@@ -117,6 +137,25 @@
                 that.showToast("添加成功")
                 that.resetArtical()
                 that.getAllUrls()
+              }
+            })
+          })
+        },
+        editUrl(){
+          let that = this
+          if(this.editItem.title==""|| this.editItem.url==""){
+            that.showToast("标题和链接不能为空")
+            return
+          }
+          fetch('/articals', {
+            method: "PUT",
+            body: JSON.stringify(this.editItem)
+          }).then(res => {
+            res.json().then(data => {
+              if (data.ok) {
+                that.showToast("编辑成功")
+                that.getAllUrls()
+                this.editDialog = false
               }
             })
           })
@@ -138,22 +177,12 @@
       },
       mounted: function () {
         this.getAllUrls()
-      },
-      watch: {
-        searchWord(newV){
-          console.log(newV)
-        }
+       
       },
       computed: {
         coumputedArticals: function () {
-          // var articals = this.filterByWord(this.articals, this.searchWord)
-          // console.log(articals)
-          // return articals
-          // console.log(this.searchWord)
-          // return this.articals.filter(v=>{
-          //   return title.indexOf(this.searchWord) != -1
-          // })
-          return this.searchWord?this.articals.filter(v=> title.indexOf(this.searchWord) != -1):[]
+          console.log(this.articals)
+          return this.searchWord&&this.articals?this.articals.filter(v=> v.title.indexOf(this.searchWord) != -1):this.articals
         }
       }
     })
