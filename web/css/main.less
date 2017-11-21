@@ -227,10 +227,19 @@ ul{
     font-size: 14px;
     font-weight: 600;
     text-shadow: none;
+    &:hover{
+        color: #fff !important;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 30px, rgba(0, 0, 0, 0.23) 0px 6px 10px;
+    }
+}
+.btns{
+    text-align: right;
+    margin-top: 70px;
 }
 .download-btn{
-    background: #19263b;
-    background: rgba(25,38,59,.4);
+    // background: #19263b;
+    background: rgb(15, 133, 204);
+    // background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1); 
     color: #fff;
 }
 .navbar-header{
@@ -263,6 +272,29 @@ ul{
 }
 #footer{
     p{
-        color: #fff;        
+        color: #fff;     
     }
+    .foot-first-name {
+        margin-top: 20px;
+        overflow:hidden; 
+        p{
+            display: flex;
+        }
+        span{
+
+        }
+    }
+    .foot-second-name {
+        margin-top: 20px;
+        overflow:hidden; 
+    }
+}
+#marker {
+    background-image: url('../images/markers_001.png');
+    // background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    // border-radius: 50%;
+    cursor: pointer;
 }

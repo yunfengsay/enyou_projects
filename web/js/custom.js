@@ -53,7 +53,7 @@
       reverse: false,
       callback: function () { }
     },
-    callback: function () { 
+    callback: function () {
       // $('.purpose1').textillate({in:{}})
     },
     // set the type of token to animate (available types: 'char' and 'word')
@@ -63,33 +63,55 @@
     arrows: true,
     fluid: true,
     dots: true,
-    keys: true, 
+    keys: true,
     speed: 500,               //  The speed to animate each slide (in milliseconds)
     delay: 3000,              //  The delay between slide animations (in milliseconds)
-    complete: function() {},
+    complete: function () { },
   });
   // WOW Animation js
   new WOW({ mobile: true }).init();
 
 })(jQuery);
 
-$(document).ready(function() { 
-  
-    (function ($) { 
-      $('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
-      
-      $('.tab ul.tabs li a').click(function (g) { 
-        var tab = $(this).closest('.tab'), 
-          index = $(this).closest('li').index();
-        
-        tab.find('ul.tabs > li').removeClass('current');
-        $(this).closest('li').addClass('current');
-        
-        tab.find('.tab_content').find('div.tabs_item').not('div.tabs_item:eq(' + index + ')').slideUp();
-        tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').slideDown();
-        
-        g.preventDefault();
-      } );
-    })(jQuery);
-  
+$(document).ready(function () {
+
+  (function ($) {
+    $('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
+
+    $('.tab ul.tabs li a').click(function (g) {
+      var tab = $(this).closest('.tab'),
+        index = $(this).closest('li').index();
+
+      tab.find('ul.tabs > li').removeClass('current');
+      $(this).closest('li').addClass('current');
+
+      tab.find('.tab_content').find('div.tabs_item').not('div.tabs_item:eq(' + index + ')').slideUp();
+      tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').slideDown();
+
+      g.preventDefault();
+    });
+  })(jQuery);
+  var center = [116.50922, 39.929841]
+  mapboxgl.accessToken = 'pk.eyJ1IjoieXVuZmVuZ3NheSIsImEiOiJjajY2MTZqMmUxMXNjMnpuenNobzE1cTZ5In0.ODOEoaKH49HyhFEsTT4UGw';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: center,
+    zoom: 2
   });
+  var popup = new mapboxgl.Popup()
+    .setText('恩友北京');
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat(center)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+    map.on('style.load', function() {
+  map.setLayoutProperty('country-label-lg', 'text-field', '{name_zh}');
+  });
+});
