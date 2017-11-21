@@ -118,7 +118,6 @@ ul li {
 #second .tabs_item {
   display: none;
   padding: 30px 0;
-  min-height: 500px;
 }
 #second .tabs_item img {
   width: 100%;
@@ -171,4 +170,42 @@ ul li {
   line-height: 20px;
   font-weight: 400;
   vertical-align: middle;
+}
+.my-btn {
+  display: inline-block;
+  padding: 4px 22px;
+  border-radius: 30px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #171b1f;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: none;
+}
+.download-btn {
+  background: #19263b;
+  background: rgba(25, 38, 59, 0.4);
+  color: #fff;
+}
+.navbar-header {
+  position: relative;
+}
+@media (max-width: 768px) {
+  .custom-navbar .nav li a {
+    color: #454545 !important;
+  }
+  .navbar-header > a {
+    padding: 0px;
+    padding-left: 10px;
+  }
+  .tab ul li {
+    width: 50%;
+    text-align: center;
+  }
+}
+.navbar .container {
+  position: relative;
+}
+#footer p {
+  color: #fff;
 }
