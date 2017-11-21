@@ -20,19 +20,23 @@ func Login(c *gin.Context) {
 		cookie := tool.GetMd5(pwdMd5 + time.Now().Format("2006-01-02 15:04:05 -0700"))
 		fmt.Print(cookie)
 		isFindCookie := false
-		for k, v := range *tool.Sessions {
+		for k, v := range tool.Sessions {
 			if v == json.UserName {
-				delete(*tool.Sessions, k)
-				(*tool.Sessions)[cookie] = v
+				delete(tool.Sessions, k)
+				(tool.Sessions)[cookie] = v
+				fmt.Println("set cookie success ", cookie)
 				isFindCookie = true
 				break
 			}
 		}
 		if !isFindCookie {
+			expiration := time.Now().Add(365 * 24 * time.Hour)
 			http.SetCookie(c.Writer, &http.Cookie{
-				Name:    "en_session",
-				Value:   cookie,
-				Expires: time.Now().Add(10 * time.Second),
+				Name:     "en_session",
+				Value:    cookie,
+				HttpOnly: false,
+				// Path:     "/",
+				Expires: expiration,
 			})
 		}
 		// c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})

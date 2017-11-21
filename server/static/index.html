@@ -116,9 +116,9 @@
         },
         getAllUrls() {
           let that = this
-          fetch("/articals").then(res => {
+          fetch("/articals",{credentials: 'include'}).then(res => {
             res.json().then(data => {
-              that.articals = data.data
+              that.articals = data.data||[]
             })
           })
         },
@@ -130,7 +130,8 @@
           }
           fetch('/articals', {
             method: "POST",
-            body: JSON.stringify(this.newAritcal)
+            body: JSON.stringify(this.newAritcal),
+            credentials: 'include'
           }).then(res => {
             res.json().then(data => {
               if (data.ok) {
@@ -149,7 +150,8 @@
           }
           fetch('/articals', {
             method: "PUT",
-            body: JSON.stringify(this.editItem)
+            body: JSON.stringify(this.editItem),
+            credentials: 'include'
           }).then(res => {
             res.json().then(data => {
               if (data.ok) {
@@ -163,7 +165,8 @@
         deleteArtical(id) {
           let that = this
           fetch("/articals/" + that.deleteItem.Id, {
-            method: "DELETE"
+            method: "DELETE",
+            credentials: 'include'
           }).then(res => {
             res.json().then(data => {
               if (data.ok) {

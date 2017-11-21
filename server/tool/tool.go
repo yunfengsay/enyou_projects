@@ -8,7 +8,7 @@ import (
 
 var salt = "oifjiejnabpoe[fjovni"
 
-var Sessions = new(map[string]string)
+var Sessions = make(map[string]string)
 
 func GetMd5(str string) string {
 	w := md5.New()

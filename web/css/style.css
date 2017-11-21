@@ -40,15 +40,15 @@ h4 {
   font-weight: normal;
 }
 p {
-  color: #878787;
+  color: #777;
   font-size: 16px;
   font-weight: 300;
   line-height: 25px;
   letter-spacing: 0.2px;
+  text-indent: 2em;
 }
 strong,
 span {
-  color: #fff;
   font-weight: normal;
 }
 /*---------------------------------------
@@ -114,7 +114,7 @@ a:focus {
 #third,
 #contact {
   position: relative;
-  padding-top: 80px;
+  padding-top: 70px;
   padding-bottom: 80px;
 }
 #first img,
@@ -163,11 +163,6 @@ a:focus {
   border: 1px solid #000000;
   border-top-color: #f9f9f9;
   animation: spinner .9s linear infinite;
-}
-@-webkit- @keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
 }
 @keyframes spinner {
   to {
@@ -257,7 +252,7 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: #1A1A1A;
+  background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1);
   height: 100vh;
   position: relative;
   padding-top: 62px;
@@ -306,7 +301,6 @@ a:focus {
 -----------------------------------------*/
 #second {
   border-top: 1px solid #f0f0f0;
-  padding-top: 80px;
   padding-bottom: 60px;
 }
 .second-thumb strong,
