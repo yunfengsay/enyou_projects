@@ -7,13 +7,14 @@ import (
 )
 
 type Config struct {
-	AdminUser  string
-	AdminPwd   string
-	DBUrl      string
-	DBUser     string
-	DBPwd      string
-	ServerPort string
-	DBName     string
+	AdminUser      string
+	AdminPwd       string
+	DBUrl          string
+	DBUser         string
+	DBPwd          string
+	ServerPort     string
+	DBName         string
+	ChangePwdToken string
 }
 
 var ConfigContext Config

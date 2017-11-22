@@ -10,6 +10,12 @@ var salt = "oifjiejnabpoe[fjovni"
 
 var Sessions = make(map[string]string)
 
+func CleanSessions() {
+	for k := range Sessions {
+		delete(Sessions, k)
+	}
+}
+
 func GetMd5(str string) string {
 	w := md5.New()
 	io.WriteString(w, str+salt)              //加盐 将str写入到w中

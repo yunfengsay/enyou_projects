@@ -19,26 +19,25 @@ func Login(c *gin.Context) {
 		isAuth := model.UserLogin(json.UserName, pwdMd5)
 		cookie := tool.GetMd5(pwdMd5 + time.Now().Format("2006-01-02 15:04:05 -0700"))
 		fmt.Print(cookie)
-		isFindCookie := false
 		for k, v := range tool.Sessions {
 			if v == json.UserName {
 				delete(tool.Sessions, k)
 				(tool.Sessions)[cookie] = v
-				fmt.Println("set cookie success ", cookie)
-				isFindCookie = true
+				fmt.Println("😄 😂 改变 cookie success ", cookie)
 				break
 			}
 		}
-		if !isFindCookie {
-			expiration := time.Now().Add(365 * 24 * time.Hour)
-			http.SetCookie(c.Writer, &http.Cookie{
-				Name:     "en_session",
-				Value:    cookie,
-				HttpOnly: false,
-				// Path:     "/",
-				Expires: expiration,
-			})
-		}
+		expiration := time.Now().Add(365 * 24 * time.Hour)
+		http.SetCookie(c.Writer, &http.Cookie{
+			Name:     "en_session",
+			Value:    cookie,
+			HttpOnly: true,
+			Path:     "/",
+			Expires:  expiration,
+		})
+		(tool.Sessions)[cookie] = json.UserName
+		fmt.Println("😄 😂 写入 cookie success ", cookie)
+
 		// c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
 		if isAuth {
 			c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
@@ -121,6 +120,37 @@ func DeleteArtical(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"ok": true,
+		})
+	}
+}
+
+type ChangePwdStruct struct {
+	Pwd   string
+	Token string
+}
+
+func ChangePwd(c *gin.Context) {
+	var newPwd ChangePwdStruct
+	if err := c.BindJSON(&newPwd); err == nil {
+		fmt.Println(newPwd)
+		success := model.ChangeAdminPwd(newPwd.Pwd, newPwd.Token)
+		if !success {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": "token 不正确",
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      true,
+				"message": "修改成功",
+			})
+			tool.CleanSessions()
+			// runtime.GC()
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
 		})
 	}
 }

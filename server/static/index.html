@@ -16,40 +16,49 @@
 <body>
   <div id="app" class="index-container">
     <mu-dialog :open="deleteDialog" title="删除" @close="deleteDialog = false">
-      您确定要删除  <span style="color:brown"> {{deleteItem.title}}</span>?
+      您确定要删除 <span style="color:brown"> {{deleteItem.title}}</span>?
       <mu-flat-button slot="actions" @click="deleteDialog = false" primary label="取消"></mu-flat-button>
       <mu-flat-button slot="actions" primary @click="deleteArtical" label="确定"></mu-flat-button>
     </mu-dialog>
     <mu-dialog :open="editDialog" title="修改" @close="editDialog = false">
-        <div class="inputs">
-            <mu-text-field required labelFloat="true" v-model=editItem.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
-            <mu-text-field labelFloat="true" v-model=editItem.url @keyup.enter.native="editUrl" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
-          </div>
-        <mu-flat-button slot="actions" @click="editDialog = false" primary label="取消"></mu-flat-button>
-        <mu-flat-button slot="actions" primary @click="editUrl" label="确定"></mu-flat-button>
-      </mu-dialog>
-    <div class="header">
-        <a href="/">
+      <div class="inputs">
+        <mu-text-field required labelFloat="true" v-model=editItem.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
+        <mu-text-field labelFloat="true" v-model=editItem.url @keyup.enter.native="editUrl" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
+      </div>
+      <mu-flat-button slot="actions" @click="editDialog = false" primary label="取消"></mu-flat-button>
+      <mu-flat-button slot="actions" primary @click="editUrl" label="确定"></mu-flat-button>
+    </mu-dialog>
+
+    <mu-dialog :open="userDialog" title="修改密码" @close="userDialog = false">
+      <div class="inputs">
+        <mu-text-field required labelFloat="true" v-model=user.pwd label="新密码" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
+        <mu-text-field labelFloat="true" v-model=user.token @keyup.enter.native="changePwd" label="Token" hintText="请输入链接" labelFloat/></mu-text-field>
+      </div>
+      <mu-flat-button slot="actions" @click="userDialog = false" primary label="取消"></mu-flat-button>
+      <mu-flat-button slot="actions" primary @click="changePwd" label="确定"></mu-flat-button>
+    </mu-dialog>
+    <section class="header">
+      <a href="/">
           <img class="logo" src="/static/imgs/logo.png" alt="">
         </a>
-        <mu-card-header class="user-icon" title="" subTitle="">
-            <mu-avatar src="/static/imgs/default.png" slot="avatar"/>
-        </mu-card-header>
-    </div>
-    <div class="body">
+      <mu-card-header @click.native="userDialog = true" class="user-icon" title="" subTitle="">
+        <mu-avatar src="/static/imgs/default.png" slot="avatar" />
+      </mu-card-header>
+    </section>
+    <section class="body">
       <div class="left">
         <div class="search">
           <mu-text-field icon="search" v-model=searchWord></mu-text-field>
         </div>
-       <span v-show=false>{{coumputedArticals}}</span> 
-        
+        <span v-show=false>{{coumputedArticals}}</span>
+
         <ul class="urls">
-          <li class="url-item" v-for="v in coumputedArticals">
+          <li class="url-item" v-for="(v, i) in coumputedArticals">
             <a target="_blank" :href="v.url">
-              <span>{{ v.title}}</span>
+              <span class="url-index">{{i+1}}.</span><span class="url-name">{{ v.title}}</span>
             </a>
             <div class="controls">
-              <mu-icon value="edit" @mouseup.native="editDialog = true;editItem = Object.assign({}, v)"  color="grey"></mu-icon>
+              <mu-icon value="edit" @mouseup.native="editDialog = true;editItem = Object.assign({}, v)" color="grey"></mu-icon>
               <mu-icon value="delete" @mouseup.native="deleteDialog = true;deleteItem = v" color="grey"></mu-icon>
             </div>
           </li>
@@ -65,7 +74,7 @@
         </div>
         <mu-toast v-if="toast" @close="hideToast" :message="message" />
       </div>
-    </div>
+    </section>
   </div>
   <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
   <script src="/static/js/muse-ui.js"></script>
@@ -84,11 +93,49 @@
         deleteDialog: false,
         deleteItem: {},
         searchWord: "",
-        editItem: {}
+        editItem: {},
+        userDialog: false,
+        user: {
+          pwd: "",
+          token: ""
+        }
       },
       methods: {
-        resetArtical(that){
-          var that = that||this
+        changePwd() {
+          let that = this
+          console.log(this.user)
+          if (this.user.pwd== "" || this.user.token == "") {
+            that.showToast("新密码和token不能为空")
+            return
+          }
+          fetch('/changepwd', {
+            method: "POST",
+            body: JSON.stringify(this.user),
+            credentials: 'include'
+          }).then(res => {
+            res.json().then(data => {
+              that.redirectToLogin(data)
+              if (data.ok) {
+                that.showToast("修改成功, 需重新登录")
+                window.location.href = "/login"
+              }else{
+                that.showToast(data.message)
+              }
+            })
+          })
+        },
+        redirectToLogin(data) {
+          if (data.needAuth) {
+            console.log("需要重新登录")
+            this.showToast("需要重新登录")
+            setTimeout(() => {
+              window.location.href = "/login"
+
+            }, 500);
+          }
+        },
+        resetArtical(that) {
+          var that = that || this
           that.newAritcal = {
             title: "",
             url: "",
@@ -116,15 +163,16 @@
         },
         getAllUrls() {
           let that = this
-          fetch("/articals",{credentials: 'include'}).then(res => {
+          fetch("/articals", { credentials: 'include' }).then(res => {
             res.json().then(data => {
-              that.articals = data.data||[]
+              that.redirectToLogin(data)
+              that.articals = data.data || []
             })
           })
         },
         addArticla() {
           let that = this
-          if(this.newAritcal.title==""|| this.newAritcal.url==""){
+          if (this.newAritcal.title == "" || this.newAritcal.url == "") {
             that.showToast("标题和链接不能为空")
             return
           }
@@ -134,6 +182,7 @@
             credentials: 'include'
           }).then(res => {
             res.json().then(data => {
+              that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("添加成功")
                 that.resetArtical()
@@ -142,9 +191,9 @@
             })
           })
         },
-        editUrl(){
+        editUrl() {
           let that = this
-          if(this.editItem.title==""|| this.editItem.url==""){
+          if (this.editItem.title == "" || this.editItem.url == "") {
             that.showToast("标题和链接不能为空")
             return
           }
@@ -154,6 +203,7 @@
             credentials: 'include'
           }).then(res => {
             res.json().then(data => {
+              that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("编辑成功")
                 that.getAllUrls()
@@ -169,6 +219,7 @@
             credentials: 'include'
           }).then(res => {
             res.json().then(data => {
+              that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("删除成功")
                 that.deleteDialog = false
@@ -180,12 +231,11 @@
       },
       mounted: function () {
         this.getAllUrls()
-       
       },
       computed: {
         coumputedArticals: function () {
           console.log(this.articals)
-          return this.searchWord&&this.articals?this.articals.filter(v=> v.title.indexOf(this.searchWord) != -1):this.articals
+          return this.searchWord && this.articals ? this.articals.filter(v => v.title.indexOf(this.searchWord) != -1) : this.articals
         }
       }
     })

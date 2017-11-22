@@ -8,11 +8,24 @@ body{
     margin: 0;
     padding: 0;
 }
+.login-app{
+    background: linear-gradient(to right, #757f9a, #d7dde8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
 .login-container{
     margin: 0 auto;
     margin-top: 200px;
     position: relative;
+    
     .inputs{
+        input{
+            border-radius: 2px;
+            padding-left: 3px;
+        }
+        /*Change text in autofill textbox*/
+        input:-webkit-autofill {
+            // -webkit-text-fill-color: yellow !important;
+        }
     }
     .button{
         margin-top: 20px;
@@ -35,6 +48,14 @@ body{
         .user-icon{
             float: right;
             padding: 9px;
+            cursor: pointer;
+            img{
+                transition: all .4s ease;
+                &:hover{
+                    box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.2);
+                    
+                }
+            }
         }
         .logo{
             width: 70px;
@@ -101,4 +122,21 @@ body{
         }
     }
 
+}
+.edit-dialog{
+    .mu-dialog{
+        width: 35% !important;
+        
+    }
+}
+.urls{
+    a{
+        color: #00649F !important;
+    }
+    .url-index{
+        margin-right: 1rem;
+    }
+    .url-name{
+
+    }
 }

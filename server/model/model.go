@@ -2,6 +2,7 @@ package model
 
 import (
 	"fmt"
+	"projects/enyou/server/conf"
 	"projects/enyou/server/db"
 	"projects/enyou/server/tool"
 
@@ -59,4 +60,18 @@ func GetAllArtical() (articals []Artical, err error) {
 func ModifyArtical(artical *Artical) (err error) {
 	err = db.Articals.Update(bson.M{"_id": artical.Id}, artical)
 	return
+}
+
+func ChangeAdminPwd(pwd string, token string) (success bool) {
+	if token == conf.ConfigContext.ChangePwdToken {
+		db.User.Remove(nil)
+		user := UserStruct{}
+		fmt.Println("😨😨😨😨😨😨😨😨😨😨😨😨 新密码是   ", pwd)
+		user.Pwd = tool.GetMd5(pwd)
+		user.UserName = conf.ConfigContext.AdminUser
+		user.Id = bson.NewObjectId()
+		db.User.Insert(&user)
+		return true
+	}
+	return false
 }

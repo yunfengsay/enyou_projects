@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"projects/enyou/server/conf"
 	"projects/enyou/server/db"
 	"projects/enyou/server/router"
@@ -11,26 +12,54 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func redirectRes(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"ok":       false,
+		"message":  "需要登录",
+		"needAuth": true,
+	})
+	c.Abort()
+	return
+}
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		//c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+		 c.Next()
+	}
+}
 func AuthNeedLogin() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println(tool.Sessions)
 		cookie, err := c.Request.Cookie("en_session")
 		if err != nil {
 			fmt.Println(err)
 		}
 		if cookie == nil {
 			// c.AbortWithStatus(400)
-			c.JSON(200, gin.H{"ok": false, "message": "需要登录"})
+			fmt.Println("🦐一个")
+
+			redirectRes(c)
 			return
 		}
-		fmt.Println("auth need lanjie  ", (tool.Sessions)[cookie.Value])
-		c.Next()
+		if cookie.Value == "" {
+
+			redirectRes(c)
+			return
+		}
+		if _, ok := (tool.Sessions)[cookie.Value]; ok {
+			c.Next()
+		} else {
+			redirectRes(c)
+		}
 	}
 }
+
 func main() {
 	conf.ReadConf()
 	db.MakeDataBase()
 	commonRouter := gin.Default()
+	commonRouter.Use(CORSMiddleware())
 	// commonRouter.LoadHTMLGlob("static/*.html")
 	commonRouter.Static("/static", "static")
 	commonRouter.Use(static.Serve("/", static.LocalFile("/static", false)))
@@ -47,5 +76,6 @@ func main() {
 	commonRouter.POST("/articals", AuthNeedLogin(), router.AddArtical)
 	commonRouter.PUT("/articals", AuthNeedLogin(), router.ModifyArtical)
 	commonRouter.DELETE("/articals/:id", AuthNeedLogin(), router.DeleteArtical)
+	commonRouter.POST("/changepwd", AuthNeedLogin(), router.ChangePwd)
 	commonRouter.Run(":" + conf.ConfigContext.ServerPort)
 }

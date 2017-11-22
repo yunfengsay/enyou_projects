@@ -8,10 +8,21 @@ body {
   margin: 0;
   padding: 0;
 }
+.login-app {
+  background: linear-gradient(to right, #757f9a, #d7dde8);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .login-container {
   margin: 0 auto;
   margin-top: 200px;
   position: relative;
+}
+.login-container .inputs {
+  /*Change text in autofill textbox*/
+}
+.login-container .inputs input {
+  border-radius: 2px;
+  padding-left: 3px;
 }
 .login-container .button {
   margin-top: 20px;
@@ -32,6 +43,13 @@ body {
 .index-container .header .user-icon {
   float: right;
   padding: 9px;
+  cursor: pointer;
+}
+.index-container .header .user-icon img {
+  transition: all .4s ease;
+}
+.index-container .header .user-icon img:hover {
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.2);
 }
 .index-container .header .logo {
   width: 70px;
@@ -93,4 +111,13 @@ body {
 .index-container ul li {
   text-decoration: none;
   list-style: none;
+}
+.edit-dialog .mu-dialog {
+  width: 35% !important;
+}
+.urls a {
+  color: #00649F !important;
+}
+.urls .url-index {
+  margin-right: 1rem;
 }

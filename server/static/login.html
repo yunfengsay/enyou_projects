@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="app" class="">
+  <div id="app" class="login-app">
     <div class="login-container">
       <div class="inputs">
         <mu-text-field labelFloat="true" v-model=user.user_name label="用户名" hintText="用户名" errorText="这是必填项"></mu-text-field> <br>
@@ -54,7 +54,9 @@
           }).then(res => {
             res.json().then(data => {
               if(data.ok){
-                window.location.href = "/"
+                setTimeout(()=>{
+                  window.location.href = "/"
+                },100)
               } else {
                 that.showToast("用户名或密码错误")
               }
