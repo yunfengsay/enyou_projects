@@ -1,7 +1,8 @@
 (function ($) {
 
   "use strict";
-
+  $("img.lazyload").lazyload();
+  
   // PRE loader
   $(window).load(function () {
     $('.preloader').fadeOut(500); // set duration in brackets    
@@ -133,5 +134,4 @@ $(document).ready(function () {
 
   $(".unslider-arrow.next").html(">")
   $(".unslider-arrow.prev").html("<")
-  $("img.lazyload").lazyload();
 });
