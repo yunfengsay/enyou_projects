@@ -1,7 +1,9 @@
 (function ($) {
 
   "use strict";
-  $("img.lazyload").lazyload();
+  $("img.lazyload").lazyload({
+    effect : "fadeIn"
+  });
   
   // PRE loader
   $(window).load(function () {
