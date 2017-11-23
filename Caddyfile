@@ -1,5 +1,5 @@
 0.0.0.0:9000 {
-    root /Users/zhangyunfeng/go/src/projects/enyou/web
+    root ./web
     proxy /articals localhost:8001 {
         transparent
     }
