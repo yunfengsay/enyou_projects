@@ -1,10 +1,7 @@
-0.0.0.0:80{
-    root /web/
-    gzip
-}
-0.0.0:8080{
-    markdown{
-        ext .md .markdown
-        template template.html
+0.0.0.0:9000 {
+    root /Users/zhangyunfeng/go/src/projects/enyou/web
+    proxy /articals localhost:8001 {
+        transparent
     }
+    gzip
 }
