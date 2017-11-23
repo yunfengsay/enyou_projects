@@ -1,0 +1,10 @@
+0.0.0.0:80{
+    root /web/
+    gzip
+}
+0.0.0:8080{
+    markdown{
+        ext .md .markdown
+        template template.html
+    }
+}
