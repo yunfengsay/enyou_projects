@@ -130,4 +130,7 @@ $(document).ready(function () {
     map.on('style.load', function() {
   map.setLayoutProperty('country-label-lg', 'text-field', '{name_zh}');
   });
+
+  $(".unslider-arrow.next").html(">")
+  $(".unslider-arrow.prev").html("<")
 });

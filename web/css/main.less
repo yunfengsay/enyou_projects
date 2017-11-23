@@ -332,3 +332,25 @@ ul{
         }
     }
 }
+.unslider{
+    position: relative;
+    >a{
+        position: absolute;
+        z-index: 200;
+        background: rgba(0, 0, 0, 0.19);
+        top: 50%;
+        padding: 10px;
+        color: #fff;
+        font-size: 10px;
+    }
+    .prev{
+        left: 0 !important;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+    }
+    .next{
+        right: 0 !important;
+        border-top-left-radius: 24px;
+        border-bottom-left-radius: 24px;
+    }
+}
