@@ -210,6 +210,12 @@ ul li {
     text-align: center;
   }
 }
+.navbar {
+  padding: 0 !important;
+}
+.navbar a {
+  padding: 0;
+}
 .navbar .container {
   position: relative;
 }
@@ -219,9 +225,13 @@ ul li {
 #footer .foot-first-name {
   margin-top: 20px;
   overflow: hidden;
+  padding-left: 4em;
 }
 #footer .foot-first-name p {
   display: flex;
+}
+#footer .foot-first-name span {
+  text-indent: 1em;
 }
 #footer .foot-second-name {
   margin-top: 20px;
@@ -230,7 +240,32 @@ ul li {
 #marker {
   background-image: url('../images/markers_001.png');
   background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
+  width: 24px;
+  height: 35px;
   cursor: pointer;
+}
+.nav {
+  margin-top: 12px;
+}
+.articals {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.articals ul {
+  height: 100%;
+  padding: 0;
+}
+.articals li {
+  position: relative;
+  display: flex;
+  width: 13rem;
+  border: 1px solid #f3f3f3;
+  border-radius: 3px;
+}
+.articals li a {
+  width: 100%;
+  flex: 1;
 }
