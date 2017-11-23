@@ -40,7 +40,7 @@ func Login(c *gin.Context) {
 
 		// c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
 		if isAuth {
-			c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "登录成功"})
+			c.JSON(http.StatusOK, gin.H{"ok": isAuth,"cookie": cookie, "message": "登录成功"})
 			// c.Redirect(http.StatusMovedPermanently, "/")
 		} else {
 			c.JSON(http.StatusOK, gin.H{"ok": isAuth, "message": "用户名或密码错误"})

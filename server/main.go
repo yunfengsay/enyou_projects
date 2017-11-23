@@ -18,6 +18,11 @@ func redirectRes(c *gin.Context) {
 		"message":  "需要登录",
 		"needAuth": true,
 	})
+	//if c.Request.URL.Path == "/"{
+	//	c.Redirect(http.StatusMovedPermanently, "/login")
+	//} else{
+	//
+	//}
 	c.Abort()
 	return
 }

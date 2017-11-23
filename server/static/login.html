@@ -54,6 +54,8 @@
           }).then(res => {
             res.json().then(data => {
               if(data.ok){
+                cookie = data.cookie
+                document.cookie = "en_session="+cookie
                 setTimeout(()=>{
                   window.location.href = "/"
                 },100)
