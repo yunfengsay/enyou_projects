@@ -267,6 +267,9 @@ a:focus {
 }
 #home .slogan-text {
   margin-top: 150px;
+  text-align: center;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.4) 5px 9px 12px;
 }
 #home .purpose-text {
   margin-top: 100px;
