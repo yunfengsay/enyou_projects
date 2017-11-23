@@ -133,4 +133,5 @@ $(document).ready(function () {
 
   $(".unslider-arrow.next").html(">")
   $(".unslider-arrow.prev").html("<")
+  $("img.lazyload").lazyload();
 });
