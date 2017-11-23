@@ -32,6 +32,7 @@ func CORSMiddleware() gin.HandlerFunc {
 func AuthNeedLogin() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		cookie, err := c.Request.Cookie("en_session")
+		fmt.Println(c.Request.URL)
 		if err != nil {
 			fmt.Println(err)
 		}

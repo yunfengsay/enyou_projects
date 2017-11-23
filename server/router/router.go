@@ -31,7 +31,7 @@ func Login(c *gin.Context) {
 		http.SetCookie(c.Writer, &http.Cookie{
 			Name:     "en_session",
 			Value:    cookie,
-			HttpOnly: true,
+			HttpOnly: false,
 			Path:     "/",
 			Expires:  expiration,
 		})

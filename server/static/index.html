@@ -102,7 +102,7 @@
       },
       methods: {
         changePwd() {
-          let that = this
+          var that = this
           console.log(this.user)
           if (this.user.pwd== "" || this.user.token == "") {
             that.showToast("新密码和token不能为空")
@@ -112,8 +112,8 @@
             method: "POST",
             body: JSON.stringify(this.user),
             credentials: 'include'
-          }).then(res => {
-            res.json().then(data => {
+          }).then(function(res) {
+            res.json().then(function(data) {
               that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("修改成功, 需重新登录")
@@ -128,7 +128,7 @@
           if (data.needAuth) {
             console.log("需要重新登录")
             this.showToast("需要重新登录")
-            setTimeout(() => {
+            setTimeout(function(){
               window.location.href = "/login"
 
             }, 500);
@@ -152,9 +152,9 @@
           if (!Array.isArray(array)) {
             return
           }
-          let newArray = []
+          var newArray = []
           for (var i = 0; i < array.length; i++) {
-            let item = array[i]
+            var item = array[i]
             if (item.title.indexOf(word) != -1) {
               newArray.push(item)
             }
@@ -162,16 +162,16 @@
           return newArray
         },
         getAllUrls() {
-          let that = this
-          fetch("/articals", { credentials: 'include' }).then(res => {
-            res.json().then(data => {
+          var that = this
+          fetch("/articals", { credentials: 'include' }).then(function(res) {
+            res.json().then(function(data) {
               that.redirectToLogin(data)
               that.articals = data.data || []
             })
           })
         },
         addArticla() {
-          let that = this
+          var that = this
           if (this.newAritcal.title == "" || this.newAritcal.url == "") {
             that.showToast("标题和链接不能为空")
             return
@@ -180,8 +180,8 @@
             method: "POST",
             body: JSON.stringify(this.newAritcal),
             credentials: 'include'
-          }).then(res => {
-            res.json().then(data => {
+          }).then(function(res){
+            res.json().then(function(data) {
               that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("添加成功")
@@ -192,7 +192,7 @@
           })
         },
         editUrl() {
-          let that = this
+          var that = this
           if (this.editItem.title == "" || this.editItem.url == "") {
             that.showToast("标题和链接不能为空")
             return
@@ -202,7 +202,7 @@
             body: JSON.stringify(this.editItem),
             credentials: 'include'
           }).then(res => {
-            res.json().then(data => {
+            res.json().then(function(data) {
               that.redirectToLogin(data)
               if (data.ok) {
                 that.showToast("编辑成功")
@@ -213,11 +213,11 @@
           })
         },
         deleteArtical(id) {
-          let that = this
+          var that = this
           fetch("/articals/" + that.deleteItem.Id, {
             method: "DELETE",
             credentials: 'include'
-          }).then(res => {
+          }).then(function(res) {
             res.json().then(data => {
               that.redirectToLogin(data)
               if (data.ok) {
@@ -231,6 +231,9 @@
       },
       mounted: function () {
         this.getAllUrls()
+        if(document.cookie.indexOf("en_session") == -1){
+          window.location.href = "/login"
+        }
       },
       computed: {
         coumputedArticals: function () {
