@@ -54,10 +54,14 @@
           }).then(res => {
             res.json().then(data => {
               if(data.ok){
+                that.showToast("登录成功")
                 cookie = data.cookie
                 document.cookie = "en_session="+cookie
-                setTimeout(()=>{
-                  window.location.href = "/"
+                var k = setInterval(()=>{
+                  if(document.cookie.indexOf("en_session") != -1){
+                    clearInterval(k)
+                    window.location.href = "/"
+                  }
                 },100)
               } else {
                 that.showToast("用户名或密码错误")
