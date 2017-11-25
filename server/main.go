@@ -31,7 +31,7 @@ func CORSMiddleware() gin.HandlerFunc {
 
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		//c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
-		 c.Next()
+		c.Next()
 	}
 }
 func AuthNeedLogin() gin.HandlerFunc {
