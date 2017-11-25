@@ -13,17 +13,17 @@ import (
 )
 
 func redirectRes(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"ok":       false,
-		"message":  "需要登录",
-		"needAuth": true,
-	})
-	//if c.Request.URL.Path == "/"{
-	//	c.Redirect(http.StatusMovedPermanently, "/login")
-	//} else{
-	//
-	//}
-	c.Abort()
+	if c.Request.URL.Path == "/" {
+		c.Redirect(http.StatusMovedPermanently, "/login")
+		c.Abort()
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":       false,
+			"message":  "需要登录",
+			"needAuth": true,
+		})
+		c.Abort()
+	}
 	return
 }
 func CORSMiddleware() gin.HandlerFunc {
@@ -43,13 +43,12 @@ func AuthNeedLogin() gin.HandlerFunc {
 		}
 		if cookie == nil {
 			// c.AbortWithStatus(400)
-			fmt.Println("🦐一个")
-
+			fmt.Println("🦐  cookie为空")
 			redirectRes(c)
 			return
 		}
+		fmt.Println(cookie.Value, " 👈这是cookie的value")
 		if cookie.Value == "" {
-
 			redirectRes(c)
 			return
 		}
@@ -69,7 +68,7 @@ func main() {
 	// commonRouter.LoadHTMLGlob("static/*.html")
 	commonRouter.Static("/static", "static")
 	commonRouter.Use(static.Serve("/", static.LocalFile("/static", false)))
-	commonRouter.GET("/", func(c *gin.Context) {
+	commonRouter.GET("/", AuthNeedLogin(), func(c *gin.Context) {
 		c.File("./static/index.html")
 	})
 	commonRouter.GET("/login", func(c *gin.Context) {
