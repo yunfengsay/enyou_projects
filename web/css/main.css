@@ -198,6 +198,9 @@ ul li {
   position: relative;
 }
 @media (max-width: 768px) {
+  .iframe {
+    width: 90vw;
+  }
   .custom-navbar .nav li a {
     color: #454545 !important;
   }
@@ -236,6 +239,9 @@ ul li {
 #footer .foot-second-name {
   margin-top: 20px;
   overflow: hidden;
+}
+#footer .footer-map {
+  padding: 0;
 }
 #marker {
   background-image: url('../images/markers_001.png');

@@ -3,7 +3,7 @@ from pyquery import PyQuery as pq
 import re,time
 url = "http://www.baidu.com/s"
 
-querystring = {"ie":"utf-8","f":"8","rsv_bp":"1","rsv_idx":"1","tn":"baidu","wd":"PM社区","oq":"PM社区","rsv_pq":"f88eb42b00007a3d","rsv_t":"7a8bULnoJvq3LsRH97FPvh1vyWNZnEOrIV9hedNPj0G7cPhGtlxrzqJ2B1M","rqlang":"cn","rsv_enter":"0"}
+querystring = {"ie":"utf-8","f":"8","rsv_bp":"1","rsv_idx":"1","tn":"baidu","wd":"产品经理社区","oq":"产品经理社区","rsv_pq":"f88eb42b00007a3d","rsv_t":"7a8bULnoJvq3LsRH97FPvh1vyWNZnEOrIV9hedNPj0G7cPhGtlxrzqJ2B1M","rqlang":"cn","rsv_enter":"0"}
 
 headers = {
     'cache-control': "no-cache",

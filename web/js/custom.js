@@ -119,29 +119,6 @@ $(document).ready(function () {
       g.preventDefault();
     });
   })(jQuery);
-  var center = [116.50922, 39.929841]
-  mapboxgl.accessToken = 'pk.eyJ1IjoieXVuZmVuZ3NheSIsImEiOiJjajY2MTZqMmUxMXNjMnpuenNobzE1cTZ5In0.ODOEoaKH49HyhFEsTT4UGw';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: center,
-    zoom: 2
-  });
-  var popup = new mapboxgl.Popup()
-    .setText('恩友北京');
-
-  // create DOM element for the marker
-  var el = document.createElement('div');
-  el.id = 'marker';
-
-  // create the marker
-  new mapboxgl.Marker(el)
-    .setLngLat(center)
-    .setPopup(popup) // sets a popup on this marker
-    .addTo(map);
-    map.on('style.load', function() {
-  map.setLayoutProperty('country-label-lg', 'text-field', '{name_zh}');
-  });
 
   $(".unslider-arrow.next").html(">")
   $(".unslider-arrow.prev").html("<")

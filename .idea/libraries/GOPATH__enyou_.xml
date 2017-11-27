@@ -19,6 +19,7 @@
       <root url="file://$PROJECT_DIR$/../../todo" />
       <root url="file://$PROJECT_DIR$/../../gopkg.in" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/.." />
       <root url="file://$PROJECT_DIR$/../../position" />

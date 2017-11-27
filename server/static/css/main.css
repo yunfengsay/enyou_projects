@@ -109,6 +109,12 @@ body {
 .index-container .body .right .inputs {
   margin-top: 150px;
 }
+.index-container .body .right .button {
+  width: 100%;
+}
+.index-container .body .right .button button {
+  width: 100%;
+}
 .index-container ul {
   margin: 0;
 }

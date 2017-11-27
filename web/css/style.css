@@ -260,7 +260,8 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1);
+  background: url("../images/bg.jpg");
+  background-attachment: fixed;
   height: 100vh;
   position: relative;
   padding-top: 62px;
@@ -482,4 +483,17 @@ a:focus {
     width: 85px;
     height: 85px;
   }
+}
+.canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transition: all .5s ease;
+}
+.hover-action {
+  transition: all .4s ease;
+}
+.hover-action:hover {
+  transform: scale(1.1);
 }
