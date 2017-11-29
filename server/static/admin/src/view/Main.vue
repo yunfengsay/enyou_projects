@@ -17,7 +17,7 @@ import Learn from "../components/Learn.vue"
             }
         },
         methods:{
-
+                
         },
         mounted:function(){
 

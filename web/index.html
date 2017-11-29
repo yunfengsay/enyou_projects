@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!-- ToDo:  -->
+
 <head>
       <meta charset="UTF-8">
       <title>恩友</title>
@@ -18,7 +19,7 @@
       <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider-dots.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body data-spy="scroll" data-target=".navbar-collapse" style="position:relative">
 
       <!-- <div class="preloader">
             <div class="spinner">
@@ -36,7 +37,8 @@
                </button>
                         <!-- lOGO TEXT HERE -->
                         <a style="height: 100%;" href="index.html" class="navbar-brand">
-                              <img style="height:100%;position:relative" src="./images/logo-min.png" class="logo" alt="">
+                              <img style="height:100%;position:relative" src="./images/logo.jpg" class="logo" alt="">
+                              <!-- <img style="height:100%;position:relative" src="./images/logo-min.png" class="logo" alt=""> -->
                               
                               <!-- <img style="height:100%" src="./images/logo-white.jpg" class="logo" alt=""> -->
                         </a>
@@ -55,12 +57,22 @@
             </div>
       </div>
       <!-- 首页 -->
-      <section id="home">
+      <section id="home" style="position:relative">
             <!-- <canvas class="canvas"></canvas>
             <div style="display:none" class="ui">
                   <input class="ui-input" type="text" />
                   <span class="ui-return">↵</span>
                 </div> -->
+
+            <canvas id="canvas" width="100%" height="100%"></canvas>
+
+            <img id="youtext" style="display:none" src="images/logo-p.jpg" />
+
+            <img id="designIco" style="display:none" src="images/caiwu.png" />
+
+            <img id="h5ico" style="display:none" src="images/h5ico.png" />
+
+            <img id="cs3" style="display:none" src="images/cs3.png" />
             <div class="container">
                   <div class="row">
 
@@ -129,8 +141,8 @@
                               </ul>
                         </div>
                         <div style="float:left" class="col-md-4 col-sm-12">
-                              <img data-original="./images/c1.jpg" src="http://via.placeholder.com/140x100" class="wow hover-action lazyload fadeInLeft" data-wow-delay="0.5s"
-                                    style="width:100%" alt="">
+                              <img data-original="./images/c1.jpg" src="http://via.placeholder.com/140x100" class="wow hover-action lazyload fadeInLeft"
+                                    data-wow-delay="0.5s" style="width:100%" alt="">
                         </div>
                   </div>
                   <div style="height:100px">
@@ -153,8 +165,8 @@
                               </ul>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                              <img class="wow fadeInRight  hover-action lazyload" src="http://via.placeholder.com/140x100" data-original="./images/image7.jpeg" data-wow-delay="0.5s"
-                                    style="width:100%" alt="">
+                              <img class="wow fadeInRight  hover-action lazyload" src="http://via.placeholder.com/140x100" data-original="./images/image7.jpeg"
+                                    data-wow-delay="0.5s" style="width:100%" alt="">
                         </div>
                   </div>
                   <div class="row">
@@ -166,38 +178,38 @@
                         <div class="col-md-12 col-sm-12 logoes">
                               <!-- ToDo: border -->
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.3s">
-                                    <img class="lazyload" data-original="./images/image8-min.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:100%;width:auto" class="lazyload" data-original="./images/image8-min.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.35s">
-                                    <img class="lazyload" data-original="./images/image9.gif" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:74%;width:auto" class="lazyload" data-original="./images/image9.gif" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.40s">
-                                    <img class="lazyload" data-original="./images/image10-min.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:100%;width:auto" class="lazyload" data-original="./images/image10-min.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.45s">
-                                    <img class="lazyload" data-original="./images/image11.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:100%;width:auto" class="lazyload" data-original="./images/image11.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.45s">
-                                    <img class="lazyload" data-original="./images/image13.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:154%;width:auto" class="lazyload" data-original="./images/image13.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.50s">
-                                    <img class="lazyload" data-original="./images/image15.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:79%;width:auto" class="lazyload" data-original="./images/image15.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.55s">
-                                    <img class="lazyload" data-original="./images/image16.png" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:100%;width:auto" class="lazyload" data-original="./images/image16.png" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.75s">
-                                    <img class="lazyload" data-original="./images/image20.png" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:81%;width:auto" class="lazyload" data-original="./images/image20.png" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.50s">
-                                    <img class="lazyload" data-original="./images/image21.jpeg" src="http://via.placeholder.com/140x100" alt="">
+                                    <img style="height:100%;width:auto" class="lazyload" data-original="./images/image21.jpeg" src="http://via.placeholder.com/140x100" alt="">
                               </div>
 
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.45s">
-                                    <img class="lazyload" data-original="./images/image18.png" src="http://via.placeholder.com/140x100" alt="">
+                                    <img  class="lazyload" data-original="./images/image18.png" src="http://via.placeholder.com/140x100" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.70s">
-                                    <img class="lazyload" data-original="./images/image19.png" src="http://via.placeholder.com/140x100" alt="">
+                                    <img  class="lazyload" data-original="./images/image19.png" src="http://via.placeholder.com/140x100" alt="">
                               </div>
 
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.55s">
@@ -445,13 +457,14 @@
                   <p><span>合肥</span><span>蒋倩</span></p>
             </div>
             <div class="footer-map col-md-4 col-sm-6">
-                  <iframe class="iframe" width='560' height='440' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://f.amap.com/WiM3_05A3OB6'></iframe>            </div>
+                  <iframe class="iframe" width='560' height='440' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://f.amap.com/WiM3_05A3OB6'></iframe>
+            </div>
       </section>
 
-
+      <canvas style="position:fixed;top:100vh;left:0;z-index:1000" id="hero-canvas" width="1000" height="1080"></canvas>
       <!-- SCRIPTS -->
       <script src="js/jquery.js"></script>
-      <script src="js/animate.js"></script>
+      <!-- <script src="js/animate.js"></script> -->
       <script src="js/bootstrap.min.js"></script>
       <!-- <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/magnific-popup-options.js"></script> -->
@@ -462,7 +475,11 @@
       <script src="https://cdn.bootcss.com/unslider/2.0.3/js/unslider-min.js"></script>
       <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
       <script src="js/custom.js"></script>
+      <script src="js/canvasBg.js"></script>
+      <script src="js/laro.fsm.js"></script>
 
+      <script src="js/JCanvas.0.1.js"></script>
+      <script src="js/home.js"></script>
 </body>
 
 </html>

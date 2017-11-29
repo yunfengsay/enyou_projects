@@ -260,7 +260,7 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: url("../images/bg.jpg");
+  background-color: #1A1A1A;
   background-attachment: fixed;
   height: 100vh;
   position: relative;

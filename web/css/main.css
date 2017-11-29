@@ -18,13 +18,19 @@
   flex-wrap: wrap;
 }
 .logoes .cooperate-logo {
+  position: relative;
   height: 80px;
-  min-width: 100px;
+  width: 180px;
   margin: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #f3f3f3;
 }
 .logoes .cooperate-logo img {
-  height: 100%;
+  width: 80%;
 }
 .card-container {
   position: relative;
