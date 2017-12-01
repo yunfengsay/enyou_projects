@@ -18,6 +18,7 @@ type UserStruct struct {
 
 var User *mgo.Collection
 var Articals *mgo.Collection
+var Laws *mgo.Collection
 
 var MongoSession *mgo.Session
 var DB *mgo.Database
@@ -48,6 +49,7 @@ func MakeDataBase() {
 	//切换到collection
 	User = DB.C("users")
 	Articals = DB.C("articals")
+	Laws = DB.C("laws")
 	User.Remove(nil)
 	user := UserStruct{}
 	user.Pwd = tool.GetMd5(AdminPwd)

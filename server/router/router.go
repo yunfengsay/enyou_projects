@@ -124,6 +124,82 @@ func DeleteArtical(c *gin.Context) {
 	}
 }
 
+func GetLaws(c *gin.Context) {
+	laws, err := model.GetLaws()
+	if err != nil {
+		fmt.Println(err)
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": err,
+		})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"ok":   true,
+		"data": laws,
+	})
+}
+
+func AddLaw(c *gin.Context) {
+	var law model.Laws
+	if err := c.BindJSON(&law); err == nil {
+		e := model.AddLaw(&law)
+		if e != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": e,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok": true,
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
+		})
+	}
+}
+
+func ModifyLaw(c *gin.Context) {
+	var law model.Laws
+	if err := c.BindJSON(&law); err == nil {
+		e := model.ModifyLaw(&law)
+		if e != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": e,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok": true,
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
+		})
+	}
+}
+
+func DeleteLaw(c *gin.Context) {
+	id := c.Param("id")
+	err := model.DelLaw(id)
+	fmt.Println(err)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": err,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok": true,
+		})
+	}
+}
+
 type ChangePwdStruct struct {
 	Pwd   string
 	Token string

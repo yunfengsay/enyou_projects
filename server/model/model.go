@@ -21,6 +21,13 @@ type Artical struct {
 	Url   string        `json:"url"`
 }
 
+type Laws struct {
+	Id       bson.ObjectId `bson:"_id"`
+	Title    string        `json:"title"`
+	Url      string        `json:"url"`
+	Children []Laws        `json:"children"`
+}
+
 func AddUser(user *UserStruct) (err error) {
 	user.Pwd = tool.GetMd5(user.Pwd)
 	user.Id = bson.NewObjectId()
@@ -59,6 +66,27 @@ func GetAllArtical() (articals []Artical, err error) {
 
 func ModifyArtical(artical *Artical) (err error) {
 	err = db.Articals.Update(bson.M{"_id": artical.Id}, artical)
+	return
+}
+
+func AddLaw(laws *Laws) (err error) {
+	laws.Id = bson.NewObjectId()
+	err = db.Laws.Insert(laws)
+	return
+}
+
+func DelLaw(id string) (err error) {
+	err = db.Laws.Remove(bson.M{"_id": bson.ObjectIdHex(id)})
+	return
+}
+
+func GetLaws() (Laws []Laws, err error) {
+	err = db.Laws.Find(nil).All(&Laws)
+	return
+}
+
+func ModifyLaw(law *Laws) (err error) {
+	err = db.Laws.Update(bson.M{"_id": law.Id}, law)
 	return
 }
 

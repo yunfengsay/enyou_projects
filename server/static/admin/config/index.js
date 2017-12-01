@@ -10,8 +10,23 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable: {
+      '/': {
+        target: 'http://localhost:8001/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^': '/'
+        }
+      },
+      // '/third': {
+      //   // target: 'http://bmap.dxxu.in.hillinsight.com',
+      //   target: "http://web.yfzhang.in.hillinsight.com",
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^third': '/third'
+      //   }
+      // }
+    },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8002, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

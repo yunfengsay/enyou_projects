@@ -122,4 +122,8 @@ $(document).ready(function () {
 
   $(".unslider-arrow.next").html(">")
   $(".unslider-arrow.prev").html("<")
+  setInterval(function(){
+     $(".unslider-arrow.next").click()
+  }, 3000)
+ 
 });

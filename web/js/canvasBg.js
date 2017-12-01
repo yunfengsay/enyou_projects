@@ -47,8 +47,8 @@ function draw() {
 	//console.log(time);
 	const color1 = "rgba(163,32,109,0.3)";
 	const color2 = "rgba(154,25,172,0.4)";
-	let canvas = document.getElementById("hero-canvas");
-	let ctx = document.getElementById("hero-canvas").getContext("2d");
+	let canvas = document.getElementById("bg-canvas");
+	let ctx = document.getElementById("bg-canvas").getContext("2d");
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.save();
 
