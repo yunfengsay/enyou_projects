@@ -1,100 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>恩友后台系统</title>
-  <link rel="stylesheet" href="/static/css/muse-ui.css">
-  <link rel="stylesheet" href="/static/css/theme-default.css">
-  <link rel="stylesheet" href="https://fonts.cat.net/css?family=Roboto:300,400,500,700,400italic">
-  <link rel="stylesheet" href="https://fonts.cat.net/icon?family=Material+Icons">
-  <link rel="stylesheet" href="/static/css/main.css">
-  <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
-  
-  <script src="/static/js/muse-ui.js"></script>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>admin</title>
+    <link rel=stylesheet href="https://fonts.cat.net/css?family=Roboto:300,400,500,700,400italic">
+    <link rel=stylesheet href="https://fonts.cat.net/icon?family=Material+Icons">
+    <link href=/static/static/css/app.716d2184798cb869a9c5840e45bf2d92.css rel=stylesheet>
 </head>
+
 <body>
-  <div id="app" class="index-container">
-      <mu-tabs :value="activeTab" @change="handleTabChange">
-          <mu-tab value="1" title="TAB ONE"/>
-          <mu-tab value="2" title="TAB TWO"/>
-      </mu-tabs>
-      <div v-if="activeTab === '1'">
-          <h2>Tab One</h2>
-          <p>
-            这是第一个 tab
-          </p>
-      </div>
-    <mu-dialog :open="deleteDialog" title="删除" @close="deleteDialog = false">
-      您确定要删除 <span style="color:brown"> {{deleteItem.title}}</span>?
-      <mu-flat-button slot="actions" @click="deleteDialog = false" primary label="取消"></mu-flat-button>
-      <mu-flat-button slot="actions" primary @click="deleteArtical" label="确定"></mu-flat-button>
-    </mu-dialog>
-    <mu-dialog :open="editDialog" title="修改" @close="editDialog = false">
-      <div class="inputs">
-        <mu-text-field required labelFloat="true" v-model=editItem.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
-        <mu-text-field labelFloat="true" v-model=editItem.url @keyup.enter.native="editUrl" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
-      </div>
-      <mu-flat-button slot="actions" @click="editDialog = false" primary label="取消"></mu-flat-button>
-      <mu-flat-button slot="actions" primary @click="editUrl" label="确定"></mu-flat-button>
-    </mu-dialog>
-
-    <mu-dialog :open="userDialog" title="修改密码" @close="userDialog = false">
-      <div class="inputs">
-        <mu-text-field required labelFloat="true" v-model=user.pwd label="新密码" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
-        <mu-text-field labelFloat="true" v-model=user.token @keyup.enter.native="changePwd" label="Token" hintText="请输入链接" labelFloat/></mu-text-field>
-      </div>
-      <mu-flat-button slot="actions" @click="userDialog = false" primary label="取消"></mu-flat-button>
-      <mu-flat-button slot="actions" primary @click="changePwd" label="确定"></mu-flat-button>
-    </mu-dialog>
-    <section class="header">
-      <a href="/">
-          <img class="logo" src="/static/imgs/logo-min.png" alt="">
-        </a>
-      <mu-card-header @click.native="userDialog = true" class="user-icon" title="" subTitle="">
-        <mu-avatar src="/static/imgs/default.png" slot="avatar" />
-      </mu-card-header>
-    </section>
-    <section class="body">
-      <div class="left">
-        <div class="search">
-          <mu-text-field icon="search" v-model=searchWord></mu-text-field>
-        </div>
-        <span v-show=false>{{coumputedArticals}}</span>
-
-        <ul class="urls">
-          <li class="url-item" v-for="(v, i) in coumputedArticals">
-            <a target="_blank" :href="v.url">
-              <span class="url-index">{{i+1}}.</span><span class="url-name">{{ v.title}}</span>
-            </a>
-            <div class="controls">
-              <mu-icon value="edit" @mouseup.native="editDialog = true;editItem = Object.assign({}, v)" color="grey"></mu-icon>
-              <mu-icon value="delete" @mouseup.native="deleteDialog = true;deleteItem = v" color="grey"></mu-icon>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="right">
-        <div class="right-action">
-            <div class="inputs">
-                <mu-text-field labelFloat="true" v-model=newAritcal.title label="标题" hintText="标题" errorText="这是必填项"></mu-text-field> <br>
-                <mu-text-field labelFloat="true" v-model=newAritcal.url @keyup.enter.native="addArticla" label="链接" hintText="请输入链接" labelFloat/></mu-text-field>
-              </div>
-              <div class="button">
-                <mu-raised-button type=primary @mouseup.native="addArticla" label="添 加" fullWidth/>
-              </div>
-        </div>
-        <mu-toast v-if="toast" @close="hideToast" :message="message" />
-      </div>
-    </section>
-  </div>
-  <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
-  <script src="/static/js/main.js"></script>
-  <script type="text/javascript">
-   
-  </script>
+    <div id=app></div>
+    <script type=text/javascript src=/static/static/js/manifest.6ccd1e539923d7f3186c.js></script>
+    <script type=text/javascript src=/static/static/js/vendor.105da3d1217f4fbc1477.js></script>
+    <script type=text/javascript src=/static/static/js/app.864622d3ec75f56a8254.js></script>
 </body>
 
 </html>
