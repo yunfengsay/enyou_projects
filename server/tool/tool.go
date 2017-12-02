@@ -22,3 +22,4 @@ func GetMd5(str string) string {
 	md5str2 := fmt.Sprintf("%x", w.Sum(nil)) //w.Sum(nil)将w的hash转成[]byte格式
 	return md5str2
 }
+

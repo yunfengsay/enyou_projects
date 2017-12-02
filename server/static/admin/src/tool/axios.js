@@ -6,7 +6,6 @@ axios.interceptors.response.use(function (res) {
     return res
   }, function (error) {
     // $globalThis.$Message.error("请求错误")
-    Bus.$emit('ajax-load-error')
     return Promise.reject(error)
   })
 window.$http = axios

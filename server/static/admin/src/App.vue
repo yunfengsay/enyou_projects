@@ -23,6 +23,7 @@ export default {
 .el-tabs__header{
   margin-bottom: 0 !important;
   height: 51px;
+  padding-left: 30px;
   >div{
     height: 100%;
     >div{

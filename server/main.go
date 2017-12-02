@@ -82,10 +82,10 @@ func main() {
 	commonRouter.POST("/articals", AuthNeedLogin(), router.AddArtical)
 	commonRouter.PUT("/articals", AuthNeedLogin(), router.ModifyArtical)
 	commonRouter.DELETE("/articals/:id", AuthNeedLogin(), router.DeleteArtical)
-	commonRouter.GET("/laws", router.GetArticals)
-	commonRouter.POST("/laws", AuthNeedLogin(), router.AddArtical)
-	commonRouter.PUT("/laws", AuthNeedLogin(), router.ModifyArtical)
-	commonRouter.DELETE("/laws/:id", AuthNeedLogin(), router.DeleteArtical)
+	commonRouter.GET("/laws", router.GetLaws)
+	commonRouter.POST("/laws", AuthNeedLogin(), router.AddLaw)
+	commonRouter.PUT("/laws", AuthNeedLogin(), router.ModifyLaw)
+	commonRouter.DELETE("/laws/:id", AuthNeedLogin(), router.DeleteLaw)
 
 	commonRouter.POST("/changepwd", AuthNeedLogin(), router.ChangePwd)
 

@@ -65,7 +65,7 @@
                 <li v-for="(v,i) in articals">
                     <!-- <a target="_blank" :href="v.url"> {{v.title}}</a> -->
                                             <a target="_blank" :href="v.url">
-              <span class="url-index">{{i+1}}.</span><span class="url-name">{{ v.title}}</span>
+              <i class="url-index">{{i+1}}.</i><span class="url-name">{{ v.title}}</span>
             </a>
                     <span class="actions">
 

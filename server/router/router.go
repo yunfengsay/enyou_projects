@@ -9,6 +9,26 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+func CheckAndAnswer(fn func() error,c *gin.Context, err error){
+	if err == nil {
+		e := fn()
+		if e != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"ok":      false,
+				"message": e,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"ok": true,
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"ok":      false,
+			"message": "系统错误",
+		})
+	}
+}
 
 func Login(c *gin.Context) {
 	var json model.UserStruct
@@ -142,46 +162,22 @@ func GetLaws(c *gin.Context) {
 
 func AddLaw(c *gin.Context) {
 	var law model.Laws
-	if err := c.BindJSON(&law); err == nil {
-		e := model.AddLaw(&law)
-		if e != nil {
-			c.JSON(http.StatusOK, gin.H{
-				"ok":      false,
-				"message": e,
-			})
-		} else {
-			c.JSON(http.StatusOK, gin.H{
-				"ok": true,
-			})
-		}
-	} else {
-		c.JSON(http.StatusOK, gin.H{
-			"ok":      false,
-			"message": "系统错误",
-		})
+	err := c.BindJSON(&law)
+	var result =  func() (e error){
+		e = model.AddLaw(&law)
+		return
 	}
+	CheckAndAnswer(result,c,err)
 }
 
 func ModifyLaw(c *gin.Context) {
 	var law model.Laws
-	if err := c.BindJSON(&law); err == nil {
-		e := model.ModifyLaw(&law)
-		if e != nil {
-			c.JSON(http.StatusOK, gin.H{
-				"ok":      false,
-				"message": e,
-			})
-		} else {
-			c.JSON(http.StatusOK, gin.H{
-				"ok": true,
-			})
-		}
-	} else {
-		c.JSON(http.StatusOK, gin.H{
-			"ok":      false,
-			"message": "系统错误",
-		})
+	err := c.BindJSON(&law)
+	var result =  func() (e error){
+		e = model.ModifyLaw(&law)
+		return
 	}
+	CheckAndAnswer(result,c,err)
 }
 
 func DeleteLaw(c *gin.Context) {

@@ -20,12 +20,16 @@ type Artical struct {
 	Title string        `json:"title"`
 	Url   string        `json:"url"`
 }
+type Law struct {
+	Title string `json:"title"`
+	Url   string `json:"url"`
+}
 
 type Laws struct {
 	Id       bson.ObjectId `bson:"_id"`
 	Title    string        `json:"title"`
 	Url      string        `json:"url"`
-	Children []Laws        `json:"children"`
+	Children []Law         `json:"children"`
 }
 
 func AddUser(user *UserStruct) (err error) {
