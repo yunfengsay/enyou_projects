@@ -132,7 +132,6 @@ a:focus {
   border-bottom: 1px solid #f0f0f0;
   position: relative;
   background-color: #1C2331;
-  padding-top: 10px;
   margin-right: 0;
   margin-left: 0;
 }
@@ -469,6 +468,10 @@ a:focus {
   }
 }
 @media (max-width: 580px) {
+  .logoes > div {
+    width: 50% !important;
+    margin: 0 !important;
+  }
   #first .first-thumb {
     margin-top: 0px;
   }

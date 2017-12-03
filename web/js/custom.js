@@ -18,23 +18,23 @@
   $(window).load(function () {
     $('.preloader').fadeOut(500); // set duration in brackets    
   });
-  $.ajax({
-    url: "http://localhost:8001/articals",
-    type: "get",
-    dataType: 'json',
-    success: function(data){
-      console.log(data)
-      var $ul = $("#articals ul")
-      for(var i=0;i<data.data.length;i++){
-        var v = data.data[i]
-        $ul.append("<li><a target='_blank' href="+ v.url +">"+v.title+"</a></li>")
+  // $.ajax({
+  //   url: "http://localhost:8001/articals",
+  //   type: "get",
+  //   dataType: 'json',
+  //   success: function(data){
+  //     console.log(data)
+  //     var $ul = $("#articals ul")
+  //     for(var i=0;i<data.data.length;i++){
+  //       var v = data.data[i]
+  //       $ul.append("<li><a target='_blank' href="+ v.url +">"+v.title+"</a></li>")
         
-      }
-    },
-    error: function(){
-      console.log("articals 请求错误")
-    }
-  })
+  //     }
+  //   },
+  //   error: function(){
+  //     console.log("articals 请求错误")
+  //   }
+  // })
 
   //Navigation Section
   $('.navbar-collapse a').on('click', function () {
@@ -124,6 +124,6 @@ $(document).ready(function () {
   $(".unslider-arrow.prev").html("<")
   setInterval(function(){
      $(".unslider-arrow.next").click()
-  }, 3000)
+  }, 5000)
  
 });

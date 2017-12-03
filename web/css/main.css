@@ -50,7 +50,7 @@
   height: 60%;
   cursor: pointer;
   opacity: 0;
-  z-index: 1;
+  z-index: 99;
 }
 .card {
   width: 100%;
@@ -63,6 +63,7 @@
 }
 .card .title {
   height: 60%;
+  position: relative;
   cursor: pointer;
   background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1);
   display: flex;
@@ -71,9 +72,38 @@
   font-size: 20px;
   padding-top: 70px;
   transition: all .4s ease;
+  overflow: hidden;
+}
+.card .title .apoint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.card .title .marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.19);
+}
+.card .title span {
+  width: auto;
+  height: 21px;
+  z-index: 10;
 }
 .card .title:hover {
   padding-top: 40px;
+}
+.card .title img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 ul li {
   list-style: none;
@@ -204,6 +234,9 @@ ul li {
   position: relative;
 }
 @media (max-width: 768px) {
+  canvas {
+    display: none !important;
+  }
   .iframe {
     width: 90vw;
   }
@@ -248,6 +281,9 @@ ul li {
 }
 #footer .footer-map {
   padding: 0;
+}
+#footer .footer-map img {
+  float: right;
 }
 #marker {
   background-image: url('../images/markers_001.png');

@@ -11,7 +11,7 @@ Laro.register('JxHome', function (La) {
 		this.ctx = this.stage.ctx;
 		this.vpx = canvas.width / 2;
 		this.vpy = canvas.height / 2;
-		this.normalN = 300;
+		this.normalN = 10;
 		this.normalBalls = [];
 		this.angleX = 0.001;
 		this.angleY = 0.001;
@@ -363,7 +363,11 @@ Laro.register('JxHome.$states', function (La) {
 						i--;
 					}
 				}
-				$("#home-text-container").delay(1000).show()
+				setTimeout(function() {
+			$("#home-text-container").show()
+			
+				}, 2000);
+			
 			},
 			update: function (dt) {
 				this._t += dt;
@@ -440,6 +444,7 @@ Laro.register('JxHome.$states', function (La) {
 					i--;
 				}
 			}
+			
 		},
 		update: function (dt) {
 			this._t += dt;
@@ -453,7 +458,6 @@ Laro.register('JxHome.$states', function (La) {
 				for (var i = 0; i < JxHome.logoimg.length; i ++) 
 				{
 					var ball = (JxHome.logoimg[i]);
-
 					JxHome.tween(ball, 1000);
 					// ball.zpos += JxHome.zstep;
 					// console.log(ball.zpos, JxHome.zstep)
@@ -470,6 +474,7 @@ Laro.register('JxHome.$states', function (La) {
 					ball.y = pos.y;
 				}
 			}
+			
 			//this.checkExplosion();
 		},
 		transition: function () {
@@ -494,9 +499,10 @@ Laro.register('JxHome.$states', function (La) {
 				this.explosion = true;
 				this.explosionT = (+new Date);
 			}
-			// if (this.explosion && (+new Date) - this.explosionT >= 1000) {
-			// 	this.host.setState(3);
-			// }
+			if (this.explosion && (+new Date) - this.explosionT >= 1000) {
+				// this.host.setState(3);
+				return false
+			}
 		},
 		draw: function () {
 
