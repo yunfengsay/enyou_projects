@@ -274,6 +274,9 @@ a:focus {
 }
 #home .purpose-text {
   margin-top: 100px;
+  position: absolute;
+  bottom: 98px;
+  left: 0;
 }
 #home .purpose-text p {
   color: #fff;

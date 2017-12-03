@@ -434,6 +434,7 @@ Laro.register('JxHome.$states', function (La) {
 			this.push = false;
 			this._t = 0;
 			this.explosion = false;
+			this.leaveFowerver = false
 		},
 		leave: function () {
 			console.log("离开 logo img")
@@ -449,11 +450,16 @@ Laro.register('JxHome.$states', function (La) {
 		update: function (dt) {
 			this._t += dt;
 			JxHome.updateBalls(dt, 'slogan1');
-
+			if(this.leaveFowerver){
+				return
+			}
+			console.log("update")
 			if (this._t > 2 && !this.push) {
+				console.log("push logimg")
 				JxHome.pushBalls('logoimg');
 				this.push = true;
 			}
+			
 			if (this.push) {
 				for (var i = 0; i < JxHome.logoimg.length; i ++) 
 				{
@@ -462,7 +468,9 @@ Laro.register('JxHome.$states', function (La) {
 					// ball.zpos += JxHome.zstep;
 					// console.log(ball.zpos, JxHome.zstep)
 					if(ball.zpos < 1605){
-						ball.zpos ++						
+						ball.zpos ++	
+					} else{
+						this.leaveFowerver = true										
 					}
 					// ball.rotateX(JxHome.angleX);
 					// ball.rotateY(JxHome.angleY);
@@ -474,10 +482,12 @@ Laro.register('JxHome.$states', function (La) {
 					ball.y = pos.y;
 				}
 			}
+		
 			
 			//this.checkExplosion();
 		},
 		transition: function () {
+		
 			var range = JxHome.range,
 				vpx = JxHome.vpx,
 				vpy = JxHome.vpy;
@@ -501,8 +511,9 @@ Laro.register('JxHome.$states', function (La) {
 			}
 			if (this.explosion && (+new Date) - this.explosionT >= 1000) {
 				// this.host.setState(3);
-				return false
+				console.log(this.push)
 			}
+		
 		},
 		draw: function () {
 
