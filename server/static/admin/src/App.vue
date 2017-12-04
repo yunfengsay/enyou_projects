@@ -22,16 +22,16 @@ export default {
 }
 .el-tabs__header{
   margin-bottom: 0 !important;
-  height: 51px;
-  padding-left: 30px;
+  height: 51px !important;
+  padding-left: 30px !important;
   >div{
-    height: 100%;
+    height: 100% !important;
     >div{
-      height: 100%;
+      height: 100% !important;
     }
   }
   .el-tabs__nav{
-    height: 100%;
+    height: 100% !important;
   }
   .el-tabs__item{
     height: 100% !important;

@@ -11,14 +11,14 @@
     .law-left {
         flex: 1;
         border-right: 1px solid #b4bccc;
-        padding-left: 10px;
+        padding-left: 10px !important;
         li {
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             line-height: 2rem;
             transition: all .4s ease;
-            padding: 2px 5px;
+            padding: 2px 5px !important;
             &:hover {
                 background-color: #90A4AE; // color: #fff;
                 box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.2);
@@ -36,7 +36,7 @@
             justify-content: space-between;
             line-height: 2rem;
             transition: all .4s ease;
-            padding: 2px 5px;
+            padding: 2px 5px !important;
             &:hover {
                 background-color: #90A4AE; // color: #fff;
                 box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.2);
