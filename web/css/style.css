@@ -273,7 +273,8 @@ a:focus {
   text-shadow: rgba(0, 0, 0, 0.4) 5px 9px 12px;
 }
 #home .purpose-text {
-  margin-top: 100px;
+  position: absolute;
+  bottom: 80px;
 }
 #home .purpose-text p {
   color: #fff;
