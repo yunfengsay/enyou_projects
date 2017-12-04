@@ -9,7 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
-func CheckAndAnswer(fn func() error,c *gin.Context, err error){
+
+func CheckAndAnswer(fn func() error, c *gin.Context, err error) {
 	if err == nil {
 		e := fn()
 		if e != nil {
@@ -163,21 +164,21 @@ func GetLaws(c *gin.Context) {
 func AddLaw(c *gin.Context) {
 	var law model.Laws
 	err := c.BindJSON(&law)
-	var result =  func() (e error){
+	var result = func() (e error) {
 		e = model.AddLaw(&law)
 		return
 	}
-	CheckAndAnswer(result,c,err)
+	CheckAndAnswer(result, c, err)
 }
 
 func ModifyLaw(c *gin.Context) {
 	var law model.Laws
 	err := c.BindJSON(&law)
-	var result =  func() (e error){
+	var result = func() (e error) {
 		e = model.ModifyLaw(&law)
 		return
 	}
-	CheckAndAnswer(result,c,err)
+	CheckAndAnswer(result, c, err)
 }
 
 func DeleteLaw(c *gin.Context) {

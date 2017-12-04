@@ -3,6 +3,7 @@ package main
 // 精品原创 文章 工艺法规数据库
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"projects/enyou/server/conf"
 	"projects/enyou/server/db"
@@ -14,9 +15,7 @@ import (
 )
 
 func redirectRes(c *gin.Context) {
-	fmt.Println("拦截——————————————————————")
 	if c.Request.URL.Path == "/admin" {
-		fmt.Println("🦐  卧槽 达拉斯看能否皮卡将你放了卡恩饭卡恩放开你")
 		c.Redirect(http.StatusMovedPermanently, "/login")
 		c.Abort()
 	} else {
@@ -46,20 +45,20 @@ func AuthNeedLogin() gin.HandlerFunc {
 		}
 		if cookie == nil {
 			// c.AbortWithStatus(400)
-			fmt.Println("🦐  cookie为空")
+			log.Fatalf("🦐  cookie为空")
 			redirectRes(c)
 			return
 		}
-		fmt.Println(cookie.Value, " 👈这是cookie的value")
+		log.Println(cookie.Value, " 👈这是cookie的value")
 		if cookie.Value == "" {
-			fmt.Println("🦐  cookie值为空")
+			log.Fatalf("🦐  cookie值为空")
 			redirectRes(c)
 			return
 		}
 		if _, ok := (tool.Sessions)[cookie.Value]; ok {
 			c.Next()
 		} else {
-			fmt.Println("🦐  cookie 错误")
+			log.Fatalf("🦐  cookie 错误")
 			redirectRes(c)
 		}
 	}

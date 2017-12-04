@@ -274,12 +274,11 @@ a:focus {
 }
 #home .purpose-text {
   margin-top: 100px;
-  position: absolute;
-  bottom: 98px;
-  left: 0;
 }
 #home .purpose-text p {
   color: #fff;
+  font-weight: 400;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 0px 72px;
 }
 #home img {
   width: 120px;
