@@ -125,5 +125,10 @@ $(document).ready(function () {
   setInterval(function(){
      $(".unslider-arrow.next").click()
   }, 5000)
- 
+  $('a[rel=popover]').popover({
+    html: true,
+    trigger: 'click',
+    placement: $(this).data('placement'),
+    content: function(){return '<img src="'+$(this).data('img') + '" />';}
+  });
 });

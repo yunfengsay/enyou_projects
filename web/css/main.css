@@ -344,3 +344,11 @@ ul li {
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }
+.popover {
+  top: 25.5px !important;
+}
+@media (max-width: 768px) {
+  .popover {
+    top: 50% !important;
+  }
+}
