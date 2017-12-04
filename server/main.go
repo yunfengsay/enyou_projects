@@ -14,7 +14,9 @@ import (
 )
 
 func redirectRes(c *gin.Context) {
+	fmt.Println("拦截——————————————————————")
 	if c.Request.URL.Path == "/" {
+		fmt.Println("🦐  卧槽 达拉斯看能否皮卡将你放了卡恩饭卡恩放开你")
 		c.Redirect(http.StatusMovedPermanently, "/login")
 		c.Abort()
 	} else {
@@ -50,12 +52,14 @@ func AuthNeedLogin() gin.HandlerFunc {
 		}
 		fmt.Println(cookie.Value, " 👈这是cookie的value")
 		if cookie.Value == "" {
+			fmt.Println("🦐  cookie值为空")
 			redirectRes(c)
 			return
 		}
 		if _, ok := (tool.Sessions)[cookie.Value]; ok {
 			c.Next()
 		} else {
+			fmt.Println("🦐  cookie 错误")
 			redirectRes(c)
 		}
 	}
@@ -69,7 +73,7 @@ func main() {
 	// commonRouter.LoadHTMLGlob("static/*.html")
 	commonRouter.Static("/static", "static")
 	commonRouter.Use(static.Serve("/", static.LocalFile("/static", false)))
-	commonRouter.GET("/", AuthNeedLogin(), func(c *gin.Context) {
+	commonRouter.GET("/admin", AuthNeedLogin(), func(c *gin.Context) {
 		c.File("./static/index.html")
 	})
 	commonRouter.GET("/login", func(c *gin.Context) {
