@@ -15,7 +15,7 @@ import (
 
 func redirectRes(c *gin.Context) {
 	fmt.Println("拦截——————————————————————")
-	if c.Request.URL.Path == "/" {
+	if c.Request.URL.Path == "/admin" {
 		fmt.Println("🦐  卧槽 达拉斯看能否皮卡将你放了卡恩饭卡恩放开你")
 		c.Redirect(http.StatusMovedPermanently, "/login")
 		c.Abort()
