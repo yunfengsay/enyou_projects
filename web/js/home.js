@@ -252,7 +252,7 @@ Laro.register('JxHome.$states', function (La) {
 			},
 			transition: function () {
 				if (this._t > 2) {
-					this.host.setState(1);
+					this.host.setState(3);
 				}
 			},
 			draw: function () {
@@ -363,10 +363,6 @@ Laro.register('JxHome.$states', function (La) {
 						i--;
 					}
 				}
-				setTimeout(function() {
-			$("#home-text-container").show()
-			
-				}, 2000);
 			
 			},
 			update: function (dt) {
@@ -449,13 +445,12 @@ Laro.register('JxHome.$states', function (La) {
 		},
 		update: function (dt) {
 			this._t += dt;
-			JxHome.updateBalls(dt, 'slogan1');
+			JxHome.updateBalls(dt, 'normal');
 			if(this.leaveFowerver){
 				return
 			}
-			console.log("update")
+
 			if (this._t > 2 && !this.push) {
-				console.log("push logimg")
 				JxHome.pushBalls('logoimg');
 				this.push = true;
 			}
@@ -511,7 +506,6 @@ Laro.register('JxHome.$states', function (La) {
 			}
 			if (this.explosion && (+new Date) - this.explosionT >= 1000) {
 				// this.host.setState(3);
-				console.log(this.push)
 			}
 		
 		},

@@ -25,7 +25,7 @@ h6 {
 }
 h1 {
   color: #3d3d3f;
-  font-size: 50px;
+  font-size: 40px;
   line-height: normal;
 }
 h2 {
@@ -259,8 +259,7 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: #1A1A1A;
-  background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1);
+  background-image: radial-gradient(circle at 47% 9%, #3e825f, #1a4172);
   background-attachment: fixed;
   height: 100vh;
   position: relative;
@@ -268,9 +267,14 @@ a:focus {
 }
 #home .slogan-text {
   margin-top: 150px;
+  margin-bottom: 26px;
   text-align: center;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.4) 5px 9px 12px;
+}
+#home .purpose {
+  color: #ffffff82;
+  font-weight: 400;
 }
 #home .purpose-text {
   position: absolute;
@@ -281,6 +285,9 @@ a:focus {
   font-weight: 400;
   text-shadow: rgba(0, 0, 0, 0.4) 0px 0px 72px;
 }
+#second {
+  background-image: radial-gradient(circle at 47% 9%, #414141, #000000);
+}
 #home img {
   width: 120px;
   height: 120px;
@@ -290,6 +297,7 @@ a:focus {
 -----------------------------------------*/
 #first {
   min-height: 500px;
+  padding-top: 120px;
 }
 /*---------------------------------------
   first section              
@@ -317,6 +325,7 @@ a:focus {
 #second {
   border-top: 1px solid #f0f0f0;
   padding-bottom: 60px;
+  padding-top: 77px;
 }
 .second-thumb strong,
 .second-thumb span {
@@ -337,6 +346,9 @@ a:focus {
 /*---------------------------------------
   third section              
 -----------------------------------------*/
+#third {
+  padding-top: 100px;
+}
 #third .third-thumb {
   border-radius: 5px;
   margin-bottom: 15px;
@@ -503,4 +515,11 @@ a:focus {
 }
 .hover-action:hover {
   transform: scale(1.1);
+}
+#wave {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 200px;
+  left: 0;
 }
