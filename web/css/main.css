@@ -12,8 +12,7 @@
 }
 .logo {
   width: 78px;
-  height: 93px;
-  position: absolute;
+  position: relative;
   top: 0;
 }
 .logoes {
@@ -241,7 +240,6 @@ ul li {
     padding-left: 10px;
   }
   .tab ul li {
-    width: 50%;
     text-align: center;
   }
 }
@@ -314,28 +312,6 @@ ul li {
 }
 .articals li:hover {
   transform: scale(1.1);
-}
-.unslider {
-  position: relative;
-}
-.unslider > a {
-  position: absolute;
-  z-index: 200;
-  background: rgba(0, 0, 0, 0.19);
-  top: 50%;
-  padding: 10px;
-  color: #fff;
-  font-size: 10px;
-}
-.unslider .prev {
-  left: 0 !important;
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 24px;
-}
-.unslider .next {
-  right: 0 !important;
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
 }
 .popover {
   top: 25.5px !important;
