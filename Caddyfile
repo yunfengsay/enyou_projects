@@ -2,6 +2,7 @@
     root ./web
     proxy /articals localhost:8001 {
         transparent
+        gzip
     }
     gzip
 }
