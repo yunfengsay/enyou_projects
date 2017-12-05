@@ -552,6 +552,10 @@ a:focus {
   height: 50%;
   bottom: 200px;
   left: 0;
+  // z-index: -1;
+  canvas{
+    z-index: -1;
+  }
 }
 .pager_list{
   display: flex;
@@ -629,19 +633,20 @@ a:focus {
   }
   .title h2{
     position: relative;
-    &:before{
-      content: "<";
-        position: absolute;
-        left:-40px;
-      // background:linear-gradient(to right, #E67207 0%, #EF4E7B 50%, #A166AB 100%)
-    }
-    &:after{
-      content: ">";
-      position: absolute;
-      right:-40px;
-      // background:linear-gradient(to right, #E67207 0%, #EF4E7B 50%, #A166AB 100%)
+    // border-bottom: 1px solid #f3f3f3;
+    // &:before{
+    //   content: "<";
+    //     position: absolute;
+    //     left:-40px;
+    //   // background:linear-gradient(to right, #E67207 0%, #EF4E7B 50%, #A166AB 100%)
+    // }
+    // &:after{
+    //   content: ">";
+    //   position: absolute;
+    //   right:-40px;
+    //   // background:linear-gradient(to right, #E67207 0%, #EF4E7B 50%, #A166AB 100%)
       
-    }
+    // }
   }
 }
 

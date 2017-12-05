@@ -523,6 +523,9 @@ a:focus {
   bottom: 200px;
   left: 0;
 }
+#wave canvas {
+  z-index: -1;
+}
 .pager_list {
   display: flex;
   justify-content: center;
@@ -575,16 +578,6 @@ a:focus {
 }
 #second .title h2 {
   position: relative;
-}
-#second .title h2:before {
-  content: "<";
-  position: absolute;
-  left: -40px;
-}
-#second .title h2:after {
-  content: ">";
-  position: absolute;
-  right: -40px;
 }
 .yusuan > div {
   height: 100px;
