@@ -727,3 +727,6 @@ img {
 .lage-padding > div {
   padding: 20px;
 }
+.under-line {
+  padding-bottom: 4px;
+}
