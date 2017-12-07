@@ -240,7 +240,19 @@ a:focus {
   background: #000000;
   border-color: transparent;
 }
+.when-small-screen h4 {
+  text-align: center;
+  margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .when-large-screen {
+    display: none !important;
+  }
+}
 @media (min-width: 768px) {
+  .when-small-screen {
+    display: none !important;
+  }
   .custom-navbar {
     border-bottom: 0;
     background: 0 0;
@@ -259,14 +271,16 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-image: radial-gradient(circle at 47% 9%, #3e825f, #1a4172);
+  overflow: hidden;
+  background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+  background-blend-mode: multiply;
   background-attachment: fixed;
   height: 100vh;
   position: relative;
   padding-top: 62px;
 }
 #home .slogan-text {
-  margin-top: 150px;
+  margin-top: 100px;
   margin-bottom: 26px;
   text-align: center;
   color: #fff;

@@ -1,3 +1,12 @@
+
+function changeHomeBg(event){
+  $("#home").css("background" ,$(event.target).val())
+}
+function changeHomeBgImg(event){
+  console.log($(event.target).val())
+  $("#home").css({"backgroundImage":$(event.target).val()})
+}
+
 (function ($) {
 
   "use strict";
@@ -13,7 +22,6 @@
     video.load();
     video.play();
   });
-
   // PRE loader
   $(window).load(function () {
     $('.preloader').fadeOut(500); // set duration in brackets    

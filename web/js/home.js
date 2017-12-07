@@ -11,7 +11,7 @@ Laro.register('JxHome', function (La) {
 		this.ctx = this.stage.ctx;
 		this.vpx = canvas.width / 2;
 		this.vpy = canvas.height / 2;
-		this.normalN = 100;
+		this.normalN = 300;
 		this.normalBalls = [];
 		this.angleX = 0.001;
 		this.angleY = 0.001;

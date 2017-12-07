@@ -41,7 +41,7 @@
                </button>
                         <!-- lOGO TEXT HERE -->
                         <a style="height: 100%;" href="index.html" class="navbar-brand">
-                              <img style="border-radius:0;" style="height:100%;position:relative" src="./images/logo-min.jpg" class="logo" alt="">
+                              <!-- <img style="border-radius:0;" style="height:100%;position:relative" src="./images/logo-min.jpg" class="logo" alt=""> -->
                               <!-- <img style="height:100%;position:relative" src="./images/logo-min.png" class="logo" alt=""> -->
                               
                               <!-- <img style="height:100%" src="./images/logo-white.jpg" class="logo" alt=""> -->
@@ -67,10 +67,33 @@
                   <input class="ui-input" type="text" />
                   <span class="ui-return">↵</span>
                 </div> -->
-            <div class="col-sm-0" id="wave">
+                <!-- <div style="position:relative;margin-bottom: 20px;z-index:10000" class="change-home-color">
+                        <ul>
+                              <li><input onchange="changeHomeBg(event)" type="color" name="" value="linear-gradient(to top, #30cfd0 0%, #330867 100%)"></li>
+                        <li style="margin-left:20px;">
+                              <select onchange="changeHomeBgImg(event)"  name="select">
+                                    <option value="linear-gradient(to top, #00c6fb 0%, #005bea 100%);">1</option> 
+                                    <option value="radial-gradient(circle at 47% 9%, #3e825f, #1a4172);">2</option> 
+                                    <option value="linear-gradient(-180deg,#816BF9 0%,#000000 100%);">3</option> 
+                                    <option value="radial-gradient(circle at 47% 9%,#414141,#000000);">4</option> 
+                                    <option value="radial-gradient(circle at 47% 9%, #002e5f, #1a4172);">5</option> 
+                                    <option value="linear-gradient(to top, #dfe9f3 0%, white 100%);">6</option> 
+                                    <option value="linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);">7</option> 
+                                    <option value="linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);">8</option> 
+                                    <option value="linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);">9</option> 
+                                    <option value="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);">10</option> 
+                                    <option value="linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);">11</option> 
+                                    <option value="linear-gradient(60deg, #29323c 0%, #485563 100%);">12</option> 
+                                    <option value="linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);">9</option> 
+                                    
+                              </select>
+                        </li>
+                        </ul>
+                  </div> -->
+            <div  class="col-sm-0" id="wave">
 
             </div>
-            <canvas id="canvas" width="100%" height="100%"></canvas>
+            <canvas style="position:absolute;top:0;left:0" id="canvas" width="100%" height="100%"></canvas>
 
             <img id="slogan1" style="display:none" src="images/slogan01.png" />
 
@@ -86,10 +109,10 @@
                </div> -->
 
                         <div style="text-align:center;color:#fff" class="col-md-12 col-sm-12">
-                              <h1 class="wow fadeInUp slogan-text" data-wow-delay="0.4s">专注财务领域 专业能力支持</h1>
+                              <h1 class="wow fadeInUp slogan-text" data-wow-delay="0.2s">专注财务领域 专业能力支持</h1>
 
-                              <p class="wow fadeInDown purpose" data-wow-delay="0.8s" class="purpose1">通过为中国非营利组织提供财务管理的专业服务和支持，提升中国非营利组织的财务管理能力</span>
-                                    <p class="wow fadeInDown purpose" data-wow-delay="0.8s" class="purpose2">促进中国非营利组织的公信力建设，推动中国公民社会的发展</p>
+                              <p class="wow fadeInDown purpose" data-wow-delay="0.4s" class="purpose1">通过为中国非营利组织提供财务管理的专业服务和支持，提升中国非营利组织的财务管理能力</span>
+                                    <p class="wow fadeInDown purpose" data-wow-delay="0.4s" class="purpose2">促进中国非营利组织的公信力建设，推动中国公民社会的发展</p>
                                     <!-- <a href="#" class="wow fadeInUp btn btn-default section-btn" data-wow-delay="1s">Download Resume</a> -->
                         </div>
                         <!-- <div class="col-md-12 col-sm-12 purpose-text">
@@ -99,6 +122,7 @@
                   </div>
             </div>
       </section>
+  
 
       <!-- 第二页 财务服务 -->
       <section id="first">
@@ -106,23 +130,23 @@
                   <div class="row">
                         <div class="col-md-8 col-sm-12">
                               <div class="first-thumb">
-                                    <div class="wow fadeInUp section-title" data-wow-delay="0.4s">
+                                    <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
                                           <h2>财务培训</h2>
                                           <!-- <p><strong>Senior Interactive Designer & Web Developer at yourdreamjob.com</strong></p> -->
                                     </div>
-                                    <div class="wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="wow fadeInUp" data-wow-delay="0.3s">
                                           <p>通过线上线下的财务培训、讲座、沙龙，提高社会组织管理人员的财务意识，为NPO培养合格的财务人才。 6年来我们自己举办、合办或受邀担任讲师的各类培训，覆盖了全国23个省市，使上千社会组织从业人员受益。
                                           </p>
                                     </div>
                                     <ul class="social-icon">
-                                          <li class="wow fadeInLeft" data-wow-delay="1s"><a href="#" class="fa fa-twitter"></a></li>
-                                          <li class="wow fadeInUp" data-wow-delay="1.2s"><a href="#" class="fa fa-linkedin"></a></li>
-                                          <li class="wow fadeInRight" data-wow-delay="1.4s"><a href="#" class="fa fa-dribbble"></a></li>
+                                          <li class="wow fadeInLeft" data-wow-delay="0.5s"><a href="#" class="fa fa-twitter"></a></li>
+                                          <li class="wow fadeInUp" data-wow-delay="0.7s"><a href="#" class="fa fa-linkedin"></a></li>
+                                          <li class="wow fadeInRight" data-wow-delay="0.8s"><a href="#" class="fa fa-dribbble"></a></li>
                                     </ul>
                               </div>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                              <video id="myVideo" style="width: 100%" class="wow fadeInLeft" data-wow-delay="0.4s" preload="auto" autoplay="true" loop="true"
+                              <video id="myVideo" style="width: 100%" class="wow fadeInLeft" data-wow-delay="0.2s" preload="auto" autoplay="true" loop="true"
                                     data-src="./video/1.mp4">
                                     <source style="width: 100%" type="video/mp4" src="./video/1.mp4">
                               </video>
@@ -134,18 +158,18 @@
                   </div>
                   <div class="row">
                         <div style="float:right" class="col-md-8 col-sm-12">
-                              <div class="wow fadeInUp section-title" style="text-align:right" data-wow-delay="0.4s">
+                              <div class="wow fadeInUp section-title" style="text-align:right" data-wow-delay="0.2s">
                                     <h2>评估监测</h2>
                                     <!-- <p><strong>Senior Interactive Designer & Web Developer at yourdreamjob.com</strong></p> -->
                               </div>
-                              <div class="wow fadeInRight" data-wow-delay="0.5s">
+                              <div class="wow fadeInRight" data-wow-delay="0.3s">
                                     <p> 基于恩友多年来为社会组织提供财务管理服务的经验，我们受到众多资助方委托为其资助的公益组织或公益项目提供财务监测评估、尽职调查、项目评审等服务。 北京恩友提供的审计评估服务除了一般的资金审查外，更重要的是通过专业审计师的眼睛为资助方合作伙伴的财务系统进行体检，发现合作伙伴财务管理系统中潜在的风险和漏洞，由审计师提出改进意见，帮助合作伙伴建立更完善的财务体系。
                                     </p>
                               </div>
                               <ul class="social-icon">
-                                    <li class="wow fadeInLeft" data-wow-delay="1s"><a href="#" class="fa fa-twitter"></a></li>
-                                    <li class="wow fadeInUp" data-wow-delay="1.2s"><a href="#" class="fa fa-linkedin"></a></li>
-                                    <li class="wow fadeInRight" data-wow-delay="1.4s"><a href="#" class="fa fa-dribbble"></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.5s"><a href="#" class="fa fa-twitter"></a></li>
+                                    <li class="wow fadeInUp" data-wow-delay="0.6s"><a href="#" class="fa fa-linkedin"></a></li>
+                                    <li class="wow fadeInRight" data-wow-delay="0.7s"><a href="#" class="fa fa-dribbble"></a></li>
                               </ul>
                         </div>
                         <div style="float:left" class="col-md-4 col-sm-12">
@@ -157,39 +181,39 @@
                   </div>
                   <div class="row">
                         <div class="col-md-8 col-sm-12">
-                              <div class="wow fadeInLeft section-title" data-wow-delay="0.4s">
+                              <div class="wow fadeInLeft section-title" data-wow-delay="0.2s">
                                     <h2>咨询顾问</h2>
                                     <!-- <p><strong>Senior Interactive Designer & Web Developer at yourdreamjob.com</strong></p> -->
                               </div>
-                              <div class="wow fadeInUp" data-wow-delay="0.5s">
+                              <div class="wow fadeInUp" data-wow-delay="0.3s">
                                     <p>
                                           为公益组织、社会企业提供针对性的财务解决方案，发挥财务管控和运营支撑功能，助力组织突破管理或业务瓶颈，高效运作。
                                     </p>
                               </div>
                               <ul class="social-icon">
-                                    <li class="wow fadeInLeft" data-wow-delay="1s"><a href="#" class="fa fa-twitter"></a></li>
-                                    <li class="wow fadeInUp" data-wow-delay="1.2s"><a href="#" class="fa fa-linkedin"></a></li>
-                                    <li class="wow fadeInRight" data-wow-delay="1.4s"><a href="#" class="fa fa-dribbble"></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.5s"><a href="#" class="fa fa-twitter"></a></li>
+                                    <li class="wow fadeInUp" data-wow-delay="0.6s"><a href="#" class="fa fa-linkedin"></a></li>
+                                    <li class="wow fadeInRight" data-wow-delay="0.7s"><a href="#" class="fa fa-dribbble"></a></li>
                               </ul>
                         </div>
                         <div class="col-md-4 col-sm-12">
                               <img class="wow fadeInRight  hover-action lazyload" src="./images/placeholder.png" data-original="./images/success3.jpg"
-                                    data-wow-delay="0.5s" style="width:100%" alt="">
+                                    data-wow-delay="0.3s" style="width:100%" alt="">
                         </div>
                   </div>
                   <div class="row">
-                        <div class="wow fadeInLeft" data-wow-delay="0.3s" class="col-md-2 col-sm-12">
+                        <div class="wow fadeInLeft" data-wow-delay="0.2s" class="col-md-2 col-sm-12">
                               <h3>合作伙伴</h2>
                         </div>
                   </div>
                   <div class="row">
                         <div class="col-md-12 col-sm-12 logoes">
                               <!-- ToDo: border -->
-                              <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.3s">
+                              <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.2s">
                                     <img style="height:100%;width:auto" class="lazyload" data-original="./images/image8-min.jpeg" src="./images/placeholder.png"
                                           alt="">
                               </div>
-                              <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.35s">
+                              <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.3s">
                                     <img style="height:74%;width:auto" class="lazyload" data-original="./images/image9.gif" src="./images/placeholder.png" alt="">
                               </div>
                               <div class="cooperate-logo wow fadeInRight" data-wow-delay="0.40s">
@@ -312,9 +336,7 @@
             </div>
             <div class="container">
 
-                  <div class="row yusuan">
-
-
+                  <div class="row when-large-screen yusuan">
                         <div class="title">
                               <h2>预算管理</h2>
                         </div>
@@ -325,26 +347,26 @@
                               <p class="wow fadeInRight">神马？负责人经常不在办公室？异地办公不方便审批？审批流于形式? 现在，只要你能上网，随时随地轻松搞定！
                               </p>
                         </div>
-                        <div data-wow-delay="0.4s" class=" col-md-6 yusuan-left grid-line">
+                        <div data-wow-delay="0.2s" class=" col-md-6 yusuan-left grid-line">
                               <p class="wow fadeInLeft">神马？不知道项目花了多少钱？偶遇捐赠人森森说不清财务情况？左等右等会计不显身? 现在，只要你能上网，随时随地查询机构财务数据！
                               </p>
                         </div>
-                        <div data-wow-delay="0.4s" class="col-md-6 yusuan-right">
+                        <div data-wow-delay="0.2s" class="col-md-6 yusuan-right">
                               <h4 class="wow fadeInRight under-line">实时掌握数据</h4>
                         </div>
-                        <div data-wow-delay="0.8s" class=" col-md-6 yusuan-left grid-line">
+                        <div data-wow-delay="0.4s" class=" col-md-6 yusuan-left grid-line">
                               <h4 class="wow fadeInLeft under-line"> 自动生成预决算报表</h4>
 
                         </div>
-                        <div data-wow-delay="0.8s" class=" col-md-6 yusuan-right">
+                        <div data-wow-delay="0.4s" class=" col-md-6 yusuan-right">
                               <p class="wow fadeInRight">神马？项目执行完了才发现和预算对不上？好多个项目一起实施预算混乱真真让人头大9 现在，只要你能上网，随时随地导出各种预决算报表！
                               </p>
                         </div>
-                        <div data-wow-delay="1.2s" class=" col-md-6 yusuan-left grid-line">
+                        <div data-wow-delay="0.6ss" class=" col-md-6 yusuan-left grid-line">
                               <p class="wow fadeInLeft">神马？项目人员说预算应该由财务负责，财务说应该由项目负责？财务和项目缺乏沟通? 现在，从预算确立——实施——监控一报告，职责明确，授权清晰！
                               </p>
                         </div>
-                        <div data-wow-delay="1.2s" class=" col-md-6 yusuan-right">
+                        <div data-wow-delay="0.6s" class=" col-md-6 yusuan-right">
                               <h4 class="wow fadeInRight under-line"> 沟通业务与财务</h4>
 
                         </div>
@@ -352,28 +374,53 @@
                         <!-- </div> -->
 
                   </div>
+                  <div class="row when-small-screen">
+                        <div class="title">
+                              <h2>预算管理</h2>
+                        </div>
+                        <div data-wow-delay="0.1s">
+                              <h4 class="wow fadeInLeft under-line"> 在线审批</h4>
+                        </div>
+                        <p class="wow fadeInRight">神马？负责人经常不在办公室？异地办公不方便审批？审批流于形式? 现在，只要你能上网，随时随地轻松搞定！
+                        </p>
+                        <div data-wow-delay="0.1s">
+                              <h4 class="wow fadeInLeft under-line"> 实时掌握数据</h4>
+                        </div>
+                        <p class="wow fadeInRight">神马？不知道项目花了多少钱？偶遇捐赠人森森说不清财务情况？左等右等会计不显身
+                        </p>
+                        <div data-wow-delay="0.1s">
+                              <h4 class="wow fadeInLeft under-line"> 自动生成预决算报表</h4>
+                        </div>
+                        <p class="wow fadeInRight">神马？项目执行完了才发现和预算对不上？好多个项目一起实施预算混乱真真让人头大9 现在，只要你能上网，随时随地导出各种预决算报表！
+                        </p>
+                        <div data-wow-delay="0.1s">
+                              <h4 class="wow fadeInLeft under-line"> 沟通业务与财务</h4>
+                        </div>
+                        <p class="wow fadeInRight">神马？项目人员说预算应该由财务负责，财务说应该由项目负责？财务和项目缺乏沟通? 现在，从预算确立——实施——监控一报告，职责明确，授权清晰！
+                        </p>
+                  </div>
                   <div style="margin-top:40px" class="row yusuan-img">
                         <div class="col-sm-6 wow rollIn" style="animation-name:rollIn-from-left" data-wow-delay="0.2s">
                               <img src="./images/yusuan/y01.jpeg" alt="">
                               <span class="yunsuan-img-content">云端</span>
                               
                         </div>
-                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
                                     <span class="yunsuan-img-content">安全</span>
                                     
                               <img src="./images/yusuan/y02.jpeg" alt="">
                         </div>
-                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
                                     <span class="yunsuan-img-content">易操作</span>
                                     
                               <img src="./images/yusuan/y03.jpeg" alt="">
                         </div>
-                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
                                     <span class="yunsuan-img-content">预算自定义</span>
                                     
                               <img src="./images/yusuan/y04.jpeg" alt="">
                         </div>
-                        <div class="col-sm-6 wow rollIn" style="animation-name:rollIn-from-right" data-wow-delay="0.2s">
+                        <div class="col-sm-6 wow rollIn" style="animation-name:rollIn-from-right" data-wow-delay="0.1s">
                                     <span class="yunsuan-img-content">原始票据上传</span>
                                     
                               <img src="./images/yusuan/y05.jpeg" alt="">
@@ -401,13 +448,13 @@
                         </div>
                         <div class="row">
                               <div class="col-md-6 gride-line">
-                                    <p class="wow fadeInLeft"  data-wow-delay="0.4s">
+                                    <p class="wow fadeInLeft"  data-wow-delay="0.2s">
                                           出纳通软件是一款针对公益组织的云端项目财务记录软件。通过一次性数据录入，便捷抓取项目收支数据，简单轻松出具项目财务报告、日记账，多维度，按业务、收到、账户类型呈现财务数据。帮助初创组织提高项目财务工作效率，提升项目财务数据准确性。 
                                     </p>
-                                    <p class="wow fadeInLeft"  data-wow-delay="0.6s">目前有标准版和灵通版两个版本。灵通版比标准版多1个预决算对比模块。可自动生成各项目预算决算对表，即项目财务报告。</p>
+                                    <!-- <p class="wow fadeInLeft"  data-wow-delay="0.3s">目前有标准版和灵通版两个版本。灵通版比标准版多1个预决算对比模块。可自动生成各项目预算决算对表，即项目财务报告。</p> -->
                               </div>
                               <div class="col-md-6">
-                                    <div class="tabs_item_upslider wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="tabs_item_upslider wow fadeInRight" data-wow-delay="0.2s">
                                           <div id="dowebok" class="fader">
                                                 <img class="slide" src="./images/v1-min.png" target="_blank" data-href="http://v.youku.com/v_show/id_XMjk3MDgyMDY4NA==.html?spm=a2h3j.8428770.3416059.1">
                                                 <img class="slide" src="./images/v2-min.png" target="_blank" data-href="http://v.youku.com/v_show/id_XMjk3MjI2MTU0OA==.html?spm=a2hww.20023042.uerCenter.5!2~5~5!2~5~DL~DD!3~A">
@@ -422,11 +469,36 @@
                                           </div>
                                     </div>
                               </div>
-                              <div class="row">
-                                    <!-- <div class="col-md-6">
-                                          <img style="width:100%;" class="lazyload" data-original="./images/cnt-min.png" src="./images/placeholder.png" alt="">
-
-                                    </div> -->
+                        </div>
+                        <div class="row">
+                              <div class="col-md-6 col-sm-12">
+                                    <video style="border:1px solid #f3f3f3;width:100%" id="myVideo" class="wow fadeInLeft" data-wow-delay="0.2s" preload="auto" autoplay="true" loop="true"
+                                    data-src="./video/2.mp4">
+                                    <source style="width: 100%" type="video/mp4" src="./video/2.mp4">
+                              </video>
+                              </div>
+                              <div   style="display: flex;flex-direction:column;align-items:center;" class="col-md-6 col-sm-12">
+                                   <div class="wow rotateIn"  data-wow-delay="0.3s">
+                                    <svg   style="transform: scale(0.4)" width="336px" height="195px">
+                                          <defs>  
+                                              <linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%" > 
+                                                  
+                                                  <stop offset="0%" stop-color="#7A5FFF">
+                                                      <animate attributeName="stop-color" values="#7A5FFF; #01FF89; #7A5FFF" dur="4s" repeatCount="indefinite"></animate>
+                                                  </stop>
+                                      
+                                                  <stop offset="100%" stop-color="#01FF89">
+                                                      <animate attributeName="stop-color" values="#01FF89; #7A5FFF; #01FF89" dur="4s" repeatCount="indefinite"></animate>
+                                                  </stop>
+                                      
+                                              </linearGradient> 
+                                          </defs>
+                                          <g>
+                                            <path fill="url('#logo-gradient')" d="M315.69646,6.17948262 C328.855897,-3.88648819 332.169516,-0.795739865 323.113707,13.0582738 L217.327474,174.895153 C208.264469,188.760175 193.218185,188.990964 183.71996,175.409636 L126.769111,93.9767151 L12.5417619,181.728698 C-0.593710633,191.81966 -3.91947426,188.74917 5.1230211,174.855879 L110.403975,13.0975513 C119.44219,-0.789163345 134.468377,-1.03753706 143.966601,12.5437917 L200.917445,93.9767151 L315.69646,6.17948262 Z"></path>
+                                          </g>
+                                      </svg> 
+                                   </div>
+                                    <p class="wow fadeInRight "  data-wow-delay="0.3s">目前有标准版和灵通版两个版本。灵通版比标准版多1个预决算对比模块。可自动生成各项目预算决算对表，即项目财务报告。</p>
                               </div>
                         </div>
                   </div>
@@ -435,14 +507,14 @@
                               <h2>初创组织财务手册</h2>
                         </div>
                         <div class="row">
-                              <div class="col-md-6 wow fadeInLeft"  data-wow-delay="0.4s">
+                              <div class="col-md-6 wow fadeInLeft"  data-wow-delay="0.2s">
                                     <p>手册涵盖了一个初创公益组织做好财务工作的基础标准和方法，并尽量运用非财务专业术语，采用公益组织的真实案例，实用的财务工具表格，让财务小白看了能懂，懂了会做。是每个小型公益组织创办人、管理者、出纳人员必备的枕边书！</p>
                                     <p>本书以九大模块讲解财务方面的知识，帮助搭建财务管理基本框架，促进财务规范化</p>
-                                    <div class="wow fadeInUp"  data-wow-delay="0.9s">
+                                    <div class="wow fadeInUp"  data-wow-delay="0.5s">
                                           <a target="_blank" href="http://enyouyun.org/login/login" class="my-btn download-btn">手册下载</a>
                                     </div>
                               </div>
-                              <div class="col-md-6 two-img-togger wow fadeInRight"  data-wow-delay="0.4s">
+                              <div class="col-md-6 two-img-togger wow fadeInRight"  data-wow-delay="0.2s">
                                     <div class="col-md-6">
                                                 <img class="slide" src="./images/image26.jpeg">
                                     </div>
@@ -470,10 +542,10 @@
                               <h2>民非制度实操指南</h2>
                         </div>
                         <div class="row">
-                              <div class="col-md-6  wow fadeInLeft" data-wow-delay="0.4s">
+                              <div class="col-md-6  wow fadeInLeft" data-wow-delay="0.2s">
                                     <img style="width:100%" src="./images/image30-min.png" alt="">
                               </div>
-                              <div class="col-md-6 wow fadeInRight" data-wow-delay="0.4s">
+                              <div class="col-md-6 wow fadeInRight" data-wow-delay="0.2s">
                                     <p>社会组织财务工作者的必备专业书籍</p>
                                     <h4>会计制度实务指南</h4>
                                     <ol>
@@ -482,10 +554,10 @@
                                           <li>附日常会计实务50问,解决你工作中90%的困惑！</li>
                                     </ol>
                                     <div class="">
-                                          <a target="_blank" href="http://enyouyun.org/cashier/download.html" class="my-btn download-btn  wow fadeInUp"  data-wow-delay=".9s">注册使用</a>
+                                          <a target="_blank" href="http://enyouyun.org/cashier/download.html" class="my-btn download-btn  wow fadeInUp"  data-wow-delay=".4s">注册使用</a>
                                           <!-- <a target="_blank" href="https://weidian.com/?userid=857228903&share_relation=3a02c8228c28e6da_1288235281_1&wfr=wxShare"
                                                       class="my-btn download-btn">购买</a> -->
-                                          <a rel="popover" data-placement="right" data-img="./images/image29.jpeg" class="my-btn download-btn wow fadeInUp"  data-wow-delay="1s">购买</a>
+                                          <a rel="popover" data-placement="right" data-img="./images/image29.jpeg" class="my-btn download-btn wow fadeInUp"  data-wow-delay=".5s">购买</a>
                                     </div>
                               </div>
                         </div>
@@ -535,7 +607,7 @@
 
                   </div>
                   <div class="row">
-                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.4s">
+                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.2s">
                               <input class="card-radio" type="radio" name="card" id="card1" value="">
                               <div class="card">
                                     <div class="title">
@@ -552,7 +624,7 @@
                                     </div>
                               </div>
                         </div>
-                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.4s">
+                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.2s">
                               <input class="card-radio" type="radio" name="card" id="card2" value="">
                               <div class="card">
                                     <div class="title">
@@ -567,7 +639,7 @@
                                     </div>
                               </div>
                         </div>
-                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.5s">
+                        <div class="wow card-container fadeInUp col-md-4 col-sm-12" data-wow-delay="0.2s">
                               <input class="card-radio" checked="checked" type="radio" name="card" id="card3" value="">
                               <div class="card">
 
@@ -656,12 +728,11 @@
       <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
       <script src="js/custom.js"></script>
       <!-- <script src="js/canvasBg.js"></script> -->
-      <!-- <script src="js/laro.fsm.js"></script> -->
-      <!-- <script src="js/JCanvas.0.1.js"></script> -->
-      <!-- <script src="js/home.js"></script> -->
-      <!-- <script type="text/javascript" src="js/three.min.js"></script> -->
-      <script src="https://cdn.bootcss.com/three.js/r56/three.min.js"></script>
-      <script type="text/javascript" src="js/wave.js"></script>
+      <script src="js/laro.fsm.js"></script>
+      <script src="js/JCanvas.0.1.js"></script>
+      <script src="js/home.js"></script>
+      <!-- <script src="https://cdn.bootcss.com/three.js/r56/three.min.js"></script>
+      <script type="text/javascript" src="js/wave.js"></script> -->
       <!-- <script src="https://cdn.bootcss.com/AniJS/0.9.3/anijs-min.js"></script> -->
 
       <script src="js/jquery.easyfader.min.js"></script>

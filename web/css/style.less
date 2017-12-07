@@ -249,8 +249,24 @@ a:focus {
   background: #000000;
   border-color: transparent;
 }
+.when-small-screen{
+  h4{
+    text-align: center;
+    margin-top: 20px
+  }
+}
+@media (max-width: 768px){
+  .when-large-screen{
+    display: none !important;
+  }
+}
 @media (min-width: 768px) {
-
+  // .when-large-screen{
+  //   display: none !important;
+  // }
+  .when-small-screen{
+    display: none !important;
+  }
   .custom-navbar {
     border-bottom: 0;
     background: 0 0;
@@ -269,19 +285,29 @@ a:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   // background-color: #1A1A1A;
   // background: linear-gradient(20deg, #6fe3e7, #4fb8d9 25%, #5648c1);
+  // background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
   // background: url("../images/bg.jpg");
-  background-image: radial-gradient(circle at 47% 9%, #3e825f, #1a4172);
+  // background-image: radial-gradient(circle at 47% 9%, #3e825f, #1a4172);
   // background-image: linear-gradient(-180deg,#816BF9 0%,#000000 100%);
   // background-image: radial-gradient(circle at 47% 9%,#414141,#000000);
   // background-image: radial-gradient(circle at 47% 9%, #002e5f, #1a4172);
+  // background-image: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+  background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+  // background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+  // background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+  // background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  // background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
+  background-blend-mode: multiply;
   background-attachment: fixed; 
   height: 100vh;
   position: relative;
   padding-top: 62px;
   .slogan-text{
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 26px;
     text-align:center;color:#fff;text-shadow: rgba(0, 0, 0, 0.4) 5px 9px 12px;
   }
@@ -619,6 +645,7 @@ a:focus {
    // background-image: linear-gradient(-180deg,#816BF9 0%,#000000 100%);
    // background-image: radial-gradient(circle at 47% 9%,#414141,#000000);
    // background-image: radial-gradient(circle at 47% 9%, #002e5f, #1a4172);
+  //  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
    background-attachment: fixed; 
   .container{
     >div{
