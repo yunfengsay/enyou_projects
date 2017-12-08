@@ -131,6 +131,12 @@ a:focus {
 }
 #contact {
   text-align: center;
+  // height: 100vh;
+  background-color: #1C2331;
+  color: #fff;
+  *{
+    color:#fff !important;
+  }
 }
 #footer{
   border-top: 1px solid #f0f0f0;
@@ -849,7 +855,14 @@ img{
     transform: translateX(0);
   }
 }
-
+@keyframes small-to-big {
+  from{
+    transform: scale(.8)
+  }
+  to{
+    transform: scale(1)
+  }
+}
 .hover-shadow{
   transition: all .4s ease;
   &:hover{
@@ -867,4 +880,16 @@ img{
 .under-line{
   padding-bottom: 4px;
   // border-bottom: 1px solid #f3f3f3;
+}
+#contact .address-context{
+  text-align: left;
+  // margin-top: 40px;
+  p{
+    display: flex;
+    align-items: center;
+    text-indent: 1rem;
+    *{
+      font-weight: 300;
+    }
+  }
 }

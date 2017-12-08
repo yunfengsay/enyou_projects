@@ -126,6 +126,11 @@ a:focus {
 }
 #contact {
   text-align: center;
+  background-color: #1C2331;
+  color: #fff;
+}
+#contact * {
+  color: #fff !important;
 }
 #footer {
   border-top: 1px solid #f0f0f0;
@@ -728,6 +733,14 @@ img {
     transform: translateX(0);
   }
 }
+@keyframes small-to-big {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .hover-shadow {
   transition: all .4s ease;
 }
@@ -744,4 +757,15 @@ img {
 }
 .under-line {
   padding-bottom: 4px;
+}
+#contact .address-context {
+  text-align: left;
+}
+#contact .address-context p {
+  display: flex;
+  align-items: center;
+  text-indent: 1rem;
+}
+#contact .address-context p * {
+  font-weight: 300;
 }

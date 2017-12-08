@@ -1,6 +1,7 @@
 import requests
 import json
 import csv
+
 url = "https://h5.leoao.com/lens/conduct/h5/api/v1/lapis"
 
 querystring = {"lk-package":"public_platform.ground_sys.base_info.pull.front","lk-class":"STORE_SEARCH_LIST"}
