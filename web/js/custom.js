@@ -9,11 +9,34 @@ function changeHomeBgImg(event){
 
 (function ($) {
 
+//   $(window).on("scroll",function(){
+//     // console.log(( $("#isIn").offset().top - $(this).scrollTop() ) > $(this).height());
+//     console.log($("#second").offset().top - $(this).scrollTop())
+// });
+var $cwbx = $("#cwbx")
+  setInterval(function(){
+    if($cwbx.hasClass("active")){
+      $('.navigation').show()
+    }else{
+      $('.navigation').hide()
+    }
+  },10)
+
+
+
+
   "use strict";
   $("img.lazyload").lazyload({
     effect: "fadeIn"
   });
-
+	$(".js-silder").silder({
+    auto: true,//自动播放，传入任何可以转化为true的值都会自动轮播
+    speed: 25,//轮播图运动速度
+    sideCtrl: true,//是否需要侧边控制按钮
+    defaultView: 0,//默认显示的索引
+    interval: 3000,//自动轮播的时间，以毫秒为单位，默认3000毫秒
+    activeClass: "active",//小的控制按钮激活的样式，不包括作用两边，默认active
+});
 
   $("myVideo").each(function () {
     var sourceFile = $(this).attr("data-src");
@@ -49,21 +72,45 @@ function changeHomeBgImg(event){
     $(".navbar-collapse").collapse('hide');
   });
 
+  var $controlDoms = $(".navigation a")
+  var activeDom = null
+  
   $(window).scroll(function () {
     if ($(".navbar").offset().top > 50) {
       $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
       $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
+    var that = this;
+    $controlDoms.each(function(i,v){
+      activeDom&&activeDom.removeClass("active")
+
+      if($($(v).attr("href")).offset().top - $(that).scrollTop()<200){
+        $(v).parent().addClass("active")
+        activeDom = $(v).parent()
+      }
+      activeDom.addClass("active")
+    })
   });
 
-
+  $('.navigation a').bind('click', function (event) {
+    var $anchor = $(this);
+    activeDom.removeClass("active")
+    activeDom = $(event.target).parent()
+    activeDom.addClass("active")
+    
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top -70
+    }, 500);
+    event.preventDefault();
+  });
   // Smoothscroll js
   $(function () {
     $('.custom-navbar a, #home a').bind('click', function (event) {
+ 
       var $anchor = $(this);
       $('html, body').stop().animate({
-        scrollTop: $($anchor.attr('href')).offset().top - 49
+        scrollTop: $($anchor.attr('href')).offset().top 
       }, 500);
       event.preventDefault();
     });

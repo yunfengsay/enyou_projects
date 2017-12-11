@@ -19,7 +19,10 @@
       <link rel="stylesheet" href="css/entypo.css"> -->
       <link rel="stylesheet" href="css/jquery.easyfader.css">
       <link rel="stylesheet" href="css/horizonSlider.css">
-      <!-- <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider.css" rel="stylesheet"> -->
+      <link rel="stylesheet" href="css/slider.css">
+
+      <!-- <link href="https://cdn.bootcss.com/unslider/2.
+            0.3/css/unslider.css" rel="stylesheet"> -->
       <!-- <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider-dots.css" rel="stylesheet"> -->
 </head>
 
@@ -41,10 +44,6 @@
                </button>
                         <!-- lOGO TEXT HERE -->
                         <a style="height: 100%;" href="index.html" class="navbar-brand">
-                              <!-- <img style="border-radius:0;" style="height:100%;position:relative" src="./images/logo-min.jpg" class="logo" alt=""> -->
-                              <!-- <img style="height:100%;position:relative" src="./images/logo-min.png" class="logo" alt=""> -->
-
-                              <!-- <img style="height:100%" src="./images/logo-white.jpg" class="logo" alt=""> -->
                         </a>
                   </div>
 
@@ -52,7 +51,7 @@
                         <ul class="nav navbar-nav navbar-right">
                               <li><a class="" href="#home">首页</a></li>
                               <li><a class="" href="#first">财务服务</a></li>
-                              <li><a class="" href="#second">财务宝箱</a></li>
+                              <li id="cwbx"><a class="" href="#second">财务宝箱</a></li>
                               <li><a class="" href="#third">学习干货</a></li>
                               <li><a class="" href="#contact">关于我们</a></li>
                         </ul>
@@ -62,37 +61,7 @@
       </div>
       <!-- 首页 -->
       <section id="home" style="position:relative">
-            <!-- <canvas class="canvas"></canvas>
-            <div style="display:none" class="ui">
-                  <input class="ui-input" type="text" />
-                  <span class="ui-return">↵</span>
-                </div> -->
-            <!-- <div style="position:relative;margin-bottom: 20px;z-index:10000" class="change-home-color">
-                        <ul>
-                              <li><input onchange="changeHomeBg(event)" type="color" name="" value="linear-gradient(to top, #30cfd0 0%, #330867 100%)"></li>
-                        <li style="margin-left:20px;">
-                              <select onchange="changeHomeBgImg(event)"  name="select">
-                                    <option value="linear-gradient(to top, #00c6fb 0%, #005bea 100%);">1</option> 
-                                    <option value="radial-gradient(circle at 47% 9%, #3e825f, #1a4172);">2</option> 
-                                    <option value="linear-gradient(-180deg,#816BF9 0%,#000000 100%);">3</option> 
-                                    <option value="radial-gradient(circle at 47% 9%,#414141,#000000);">4</option> 
-                                    <option value="radial-gradient(circle at 47% 9%, #002e5f, #1a4172);">5</option> 
-                                    <option value="linear-gradient(to top, #dfe9f3 0%, white 100%);">6</option> 
-                                    <option value="linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);">7</option> 
-                                    <option value="linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);">8</option> 
-                                    <option value="linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);">9</option> 
-                                    <option value="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);">10</option> 
-                                    <option value="linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);">11</option> 
-                                    <option value="linear-gradient(60deg, #29323c 0%, #485563 100%);">12</option> 
-                                    <option value="linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);">9</option> 
-                                    
-                              </select>
-                        </li>
-                        </ul>
-                  </div> -->
-            <div class="col-sm-0" id="wave">
-
-            </div>
+            <div class="col-sm-0" id="wave"></div>
             <canvas style="position:absolute;top:0;left:0" id="canvas" width="100%" height="100%"></canvas>
 
             <img id="slogan1" style="display:none" src="images/slogan01.png" />
@@ -104,21 +73,13 @@
             <div class="container" style="position:absolute;height:100%">
                   <div class="row" style="height:100%" id="home-text-container">
 
-                        <!-- <div class="col-md-offset-1 col-md-2 col-sm-3">
-                    <img src="images/profile-image.jpg" class="wow fadeInUp img-responsive img-circle" data-wow-delay="0.2s" alt="first image">
-               </div> -->
-
                         <div style="text-align:center;color:#fff" class="col-md-12 col-sm-12">
                               <h1 class="wow fadeInUp slogan-text" data-wow-delay="0.2s">专注财务领域 专业能力支持</h1>
 
                               <p class="wow fadeInDown purpose" data-wow-delay="0.4s" class="purpose1">通过为中国非营利组织提供财务管理的专业服务和支持，提升中国非营利组织的财务管理能力</span>
                                     <p class="wow fadeInDown purpose" data-wow-delay="0.4s" class="purpose2">促进中国非营利组织的公信力建设，推动中国公民社会的发展</p>
-                                    <!-- <a href="#" class="wow fadeInUp btn btn-default section-btn" data-wow-delay="1s">Download Resume</a> -->
                         </div>
-                        <!-- <div class="col-md-12 col-sm-12 purpose-text">
-                              <p class="wow fadeInDown" data-wow-delay="0.8s" class="purpose1">通过为中国非营利组织提供财务管理的专业服务和支持，提升中国非营利组织的财务管理能力</span>
-                                    <p class="wow fadeInDown" data-wow-delay="0.8s" class="purpose2">促进中国非营利组织的公信力建设，推动中国公民社会的发展</p>
-                        </div> -->
+
                   </div>
             </div>
       </section>
@@ -264,46 +225,11 @@
             </div>
       </section>
 
-      <!-- <section id="second">
-            <div class="cd-slider-wrapper">
-                  <ul class="cd-slider">
-                        <li class="is-visible">
-                              <div class="cd-half-block image">
-                                    <img style="width:100%" src="./images/yusuan/yusuanguanli01.jpg" alt="">
-                              </div>
-                              <div style="color:#fff" class="cd-half-block content">
-                                    <div>
-                                          <h2>预算管理系统</h2>
-                                          <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugit ullam voluptatum tenetur ab, non beatae, impedit
-                                                dolorem itaque voluptates facilis necessitatibus suscipit dolor rerum dolores
-                                                dignissimos alias facere sunt aliquid.
-                                          </p>
-                                    </div>
-                              </div>
-                        </li>
-                        <li>
-                              <div class="cd-half-block image">
-                                    <img style="width:100%" class="lazyload" data-original="./images/cnt-min.png" src="./images/placeholder.png" alt="">
 
-                              </div>
-
-                              <div class="cd-half-block content light-bg">
-                                    <div>
-                                          <h2>出纳通</h2>
-                                          <p>
-                                                出纳通软件是一款针对公益组织的云端项目财务记录软件。通过一次性数据录入，便捷抓取项目收支数据，简单轻松出具项目财务报告、日记账，多维度，按业务、收到、账户类型呈现财务数据。帮助初创组织提高项目财务工作效率，提升项目财务数据准确性。 目前有标准版和灵通版两个版本。灵通版比标准版多1个预决算对比模块。可自动生成各项目预算决算对表，即项目财务报告。
-                                          </p>
-                                    </div>
-                              </div>
-                        </li>
-                  </ul>
-            </div>
-      </section> -->
       <!-- second SECTION -->
       <section id="second">
             <div class="svg-container">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="174.7899" y1="186.34" x2="330.1259" y2="186.34" gradientTransform="matrix(0.8538 0.5206 -0.5206 0.8538 147.9521 -79.1468)">
                               <stop offset="0" style="stop-color:#FFC035" />
@@ -332,11 +258,80 @@
                               <stop offset="1" style="stop-color:#DF3D8E" />
                         </linearGradient>
                         <circle fill="url(#SVGID_5_)" cx="435.095" cy="184.986" r="63.504" />
-                  </svg>
+                  </svg> -->
+            </div>
+            <div class="navigation">
+                  <ul>
+                        <li>
+                              <a href="#yusuanguanli">
+                                   <span class="side-text">预</span>
+                                    <span class="side-control-text">预算管理</span>
+                              </a>
+                        </li>
+                        <li>
+                              <a href="#cunatong">
+
+                                          <span class="side-text">出</span>
+                                          <span  class="side-control-text">出纳通</span>
+                              </a>
+
+                        </li>
+                        <li>
+                              <a href="#cccwsc">
+                                          <span class="side-text">初</span>
+                                          <span  class="side-control-text">初创组织财务手册</span>
+                              </a>
+                        </li>
+                        <li>
+                              <a href="#mfzdsczn">
+                                          <span class="side-text">民</span>
+                                          <span  class="side-control-text">民非制度实操指南</span>
+                              </a>
+                        </li>
+                        <li>
+                              <a href="#ccc">
+                                          <span class="side-text">财</span>
+                                          <span  class="side-control-text">财务工作模板</span>
+                              </a>
+                        </li>
+                        <li>
+                              <a href="#ccc">
+                                          <span class="side-text">财</span>
+                                          <span  class="side-control-text">财务披露模板</span>
+                              </a>
+                        </li>
+                        <li>
+                              <a href="#ccc">
+                                          <span class="side-text">慈</span>
+                                          <span  class="side-control-text">慈善捐赠个税计算器</span>
+                                                </a>
+                        </li>
+                  </ul>
             </div>
             <div class="container">
+                  <div id="yusuanguanli" class="row when-large-screen">
+                        <div class="title">
+                              <h2>预算管理</h2>
+                        </div>
+                        <div class="js-silder">
+                              <div class="silder-scroll">
+                                    <div class="silder-main">
+                                          <div class="silder-main-img">
+                                                <img src="images/yusuan/yusuan_slider_01.jpeg" alt="">
+                                          </div>
+                                          <div class="silder-main-img">
+                                                <img src="images/yusuan/yusuan_slider_02.jpeg" alt="">
+                                          </div>
+                                          <div class="silder-main-img">
+                                                <img src="images/yusuan/yusuan_slider_03.jpeg" alt="">
+                                          </div>
+                                    </div>
+                              </div>
+                              <div class="js-silder-ctrl"></div>
+                        </div>
 
-                  <div class="row when-large-screen yusuan">
+                  </div>
+                  <!-- <div class="row when-large-screen yusuan">
                         <div class="title">
                               <h2>预算管理</h2>
                         </div>
@@ -370,10 +365,8 @@
                               <h4 class="wow fadeInRight under-line"> 沟通业务与财务</h4>
 
                         </div>
-                        <!-- <div class="col-md-6"> -->
-                        <!-- </div> -->
 
-                  </div>
+                  </div> -->
                   <div class="row when-small-screen">
                         <div class="title">
                               <h2>预算管理</h2>
@@ -399,6 +392,7 @@
                         <p class="wow fadeInRight">神马？项目人员说预算应该由财务负责，财务说应该由项目负责？财务和项目缺乏沟通? 现在，从预算确立——实施——监控一报告，职责明确，授权清晰！
                         </p>
                   </div>
+
                   <div style="margin-top:40px" class="row yusuan-img">
                         <div class="col-sm-6 wow rollIn" style="animation-name:rollIn-from-left" data-wow-delay="0.2s">
                               <img src="./images/yusuan/y01.jpeg" alt="">
@@ -426,24 +420,9 @@
                               <img src="./images/yusuan/y05.jpeg" alt="">
                         </div>
                   </div>
-                  <!-- <div class="row yusuan">
-                        <div class="col-md-4 col-sm-4">
-                              <div class="col-md-12">
-                                    <img src="./images/yusuan/y31.jpeg" alt="">
-                              </div>
-                              <div class="col-md-12">
-                                    <img src="./images/yusuan/y32.jpeg" alt="">
-                              </div>
-                              <div class="col-md-12">
-                                    <img src="./images/yusuan/y33.jpeg" alt="">
-                              </div>
-                              <div class="col-md-12">
-                                    <img src="./images/yusuan/y34.jpeg" alt="">
-                              </div>
-                        </div>
-                  </div> -->
+
                   <div class="row chunatong">
-                        <div class="title">
+                        <div id="cunatong" class="title">
                               <h2>出纳通</h2>
                         </div>
                         <div class="row">
@@ -503,7 +482,7 @@
                         </div>
                   </div>
                   <div class="row chunatong">
-                        <div class="title">
+                        <div id="cccwsc" class="title">
                               <h2>初创组织财务手册</h2>
                         </div>
                         <div class="row">
@@ -537,8 +516,9 @@
                         </div>
 
                   </div>
+
                   <div class="row chunatong">
-                        <div class="title">
+                        <div id=mfzdsczn class="title">
                               <h2>民非制度实操指南</h2>
                         </div>
                         <div class="row">
@@ -562,7 +542,7 @@
                               </div>
                         </div>
                   </div>
-                  <div class="row">
+                  <div id=ccc class="row">
                         <div class="col-md-4 col-sm-12 hover-shadow lage-padding wow rollIn" style="animation-name:to-left">
                               <div class="title">
                                     <h3>财务工作模板</h3>
@@ -674,7 +654,7 @@
                   </div>
 
                   <div class="row">
-                        <div  class="col-md-4 col-sm-12 wow" style="animation-name:small-to-big">
+                        <div class="col-md-4 col-sm-12 wow" style="animation-name:small-to-big">
                               <p style="text-align:left">北京恩友是“恩友财务”联合发起机构之一，成立于2008年12月。北京恩友为公益组织和社会企业提供的服务包括：财务培训、顾问咨询、审计评估、财务工具研发等。</p>
                         </div>
                         <div class="wow col-md-5 cok-sm-12 address-context" style="animation-name:small-to-big">
@@ -713,61 +693,28 @@
 
             </div>
       </section>
-      <!-- <section class="row" id="footer">
-
-            <div class="foot-first-name col-md-6 col-sm-6">
-                  <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" viewBox="0 0 24 24" width="24">
-                              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                              <path d="M0 0h24v24H0z" fill="none" />
-                        </svg><span> 北京市朝阳区朝阳北路129号院润枫嘉尚1号楼1911室</span></p>
-                  <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" viewBox="0 0 24 24" width="24">
-                              <path d="M0 0h24v24H0z" fill="none" />
-                              <path d="M13 9h-2v2h2V9zm4 0h-2v2h2V9zm3 6.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 9v2h2V9h-2z"
-                              />
-                        </svg>
-                        <span>010-6417 6797</span>
-                  </p>
-                  <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" viewBox="0 0 24 24" width="24">
-                              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                              <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                        <span>info@nfriend.org</span>
-                  </p>
-                  <p>
-                        <img style="height:14rem" src="./images/image1.jpeg" alt="">
-                  </p>
-            </div>
-            <div class="footer-map col-md-6 col-sm-6">
-                  <img src="./images/map.jpeg" alt="">
-            </div>
-      </section> -->
-
-      <!-- <canvas style="position:absolute;top:100vh;left:0;z-index:1000;width:100vw;height:100vh" id="bg-canvas" width="1000" height="1080"></canvas> -->
-      <!-- SCRIPTS -->
       <script src="js/jquery.js"></script>
-      <!-- <script src="js/animate.js"></script> -->
       <script src="js/bootstrap.min.js"></script>
-      <!-- <script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script> -->
       <script src="js/wow.min.js"></script>
       <script src="https://cdn.bootcss.com/lettering.js/0.7.0/jquery.lettering.min.js"></script>
 
       <script src="https://cdn.bootcss.com/textillate/0.4.0/jquery.textillate.min.js"></script>
       <script src="https://cdn.bootcss.com/unslider/2.0.3/js/unslider-min.js"></script>
       <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
-      <script src="js/custom.js"></script>
       <!-- <script src="js/canvasBg.js"></script> -->
       <script src="js/laro.fsm.js"></script>
       <script src="js/JCanvas.0.1.js"></script>
       <script src="js/home.js"></script>
+
       <!-- <script src="https://cdn.bootcss.com/three.js/r56/three.min.js"></script>
       <script type="text/javascript" src="js/wave.js"></script> -->
       <!-- <script src="https://cdn.bootcss.com/AniJS/0.9.3/anijs-min.js"></script> -->
 
       <script src="js/jquery.easyfader.min.js"></script>
+      <script src="js/easySlider.js"></script>
+
+      <script src="js/custom.js"></script>
+
 </body>
 
 </html>
