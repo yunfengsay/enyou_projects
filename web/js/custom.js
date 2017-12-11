@@ -23,8 +23,6 @@ var $cwbx = $("#cwbx")
   },10)
 
 
-
-
   "use strict";
   $("img.lazyload").lazyload({
     effect: "fadeIn"
