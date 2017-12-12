@@ -582,6 +582,9 @@ a {
 #second {
   background-attachment: fixed;
 }
+#second .container > div {
+  margin-top: 80px;
+}
 #second .title {
   position: relative;
   justify-content: center;
