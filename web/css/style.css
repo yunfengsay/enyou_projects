@@ -588,9 +588,6 @@ a:focus {
 #second {
   background-attachment: fixed;
 }
-#second .container > div {
-  margin-top: 100px;
-}
 #second .title {
   position: relative;
   justify-content: center;
@@ -841,4 +838,7 @@ a:active {
 }
 a:active {
   color: #fff !important;
+}
+.mt50 {
+  margin-top: 50px;
 }
