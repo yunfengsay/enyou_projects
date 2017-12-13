@@ -720,7 +720,7 @@
                         var that = this
                         $.get("http://115.159.58.205:8001/articals", function (res) {
 
-                              that.articals = res.data
+                              that.articals = res.data.reverse()
                         })
 
                   }
