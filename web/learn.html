@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="./images/logo-min.jpg" />
-    <title>干货分享</title>
+    <title>在线课程</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body{
@@ -19,11 +19,6 @@
         .content {
             /* padding: 10px 100px; */
             /* width: 900px; */
-            display: flex;
-            flex-direction: column;
-        }
-        .content ol{
-            flex: 1;
             overflow-y: auto;
         }
         .left svg{
@@ -50,7 +45,7 @@
 </head>
 
 <body>
-    <div class="row" id="app">
+    <div class="row">
     <div class="col-md-4 left">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
@@ -84,32 +79,21 @@
       </svg>
     </div>
     <div style="display:flex;flex-direction:column" class="col-md-8 content">
-            <h3>干货分享 </h3>
+            <h3>在线课程</h3>
+            
         <ol>
-            <li v-for="v in list"><a :href="v.url">{{v.title}}</a></li>
+            <li><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/497"><span>课时1：社会组织的财务报告</span></a></li>
+            <li><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/505"><span>课时2：社会组织的财务审计与评估</span></a></li>
+            <li><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/506"><span>课时3：社会组织需要缴税吗？ </span></a></li>
+            <li><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/528"><span>课时4：社会组织的会计制度及其特点</span></a></li>
+            <li><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/529"><span>课时5：公益性捐赠如何进行税前扣除</span></a></li>
+
+
         </ol>
     </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-    
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                list: []
-            },
-            mounted: function () {
-                var that = this
-                $.get("http://115.159.58.205:8001/articals", function (res) {
-
-                    that.list = res.data
-                })
-
-            }
-        })
-    </script>
+  
 </body>
 
 </html>

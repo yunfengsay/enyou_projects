@@ -558,7 +558,7 @@
       </section>
       <!-- third SECTION -->
       <section id="third">
-            <div class="container">
+            <div id="app" class="container">
                   <div style="margin:10px" class="row">
                         <h4>学习干货</h4>
 
@@ -569,7 +569,7 @@
                               <div class="card">
                                     <div class="title">
                                           <span> 公益法规数据库</span>
-                                          <img class="lazyload" data-original="./images/data-min.jpg" src="./images/placeholder.png" alt="">
+                                          <img class="lazyload" data-original="./images/data-min.jpg" src="./images/data-min.jpg" alt="">
                                           <div class="marker"></div>
                                           <a target="_blank" href="./database.html" class="apoint"></a>
                                     </div>
@@ -584,18 +584,21 @@
                               <div class="card">
                                     <div class="title">
                                           <span> 在线课程</span>
-                                          <img class="lazyload" data-original="./images/learn.jpg" src="./images/placeholder.png" style="height:100%;width:auto;margin-left:-47px"
+                                          <img class="lazyload" data-original="./images/learn.jpg" src="./images/learn.jpg" style="height:100%;width:auto;margin-left:-47px"
                                                 alt="">
                                           <div class="marker"></div>
-                                          <!-- <a target="_blank" href="./database.html" class="apoint"></a> -->
+                                          <a target="_blank" href="./learn.html" class="apoint"></a>
                                     </div>
                                     <div class="body">
                                           <!-- <p>敬请期待……</p> -->
                                           <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/497"><span>课时1：社会组织的财务报告</span></a></p>
                                           <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/505"><span>课时2：社会组织的财务审计与评估</span></a></p>
                                           <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/506"><span>课时3：社会组织需要缴税吗？ </span></a></p>
-                                          <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/528"><span>课时4：社会组织的会计制度及其特点</span></a></p>
-                                          <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/529"><span>课时5：公益性捐赠如何进行税前扣除</span></a></p>
+                                          <!-- <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/528"><span>课时4：社会组织的会计制度及其特点</span></a></p>
+                                          <p><a target="_blank" href="http://www.gywx.org/course/72/learn#lesson/529"><span>课时5：公益性捐赠如何进行税前扣除</span></a></p> -->
+                                    </div>
+                                    <div class="footer">
+                                          <a target="_blank" href="./learn.html">...更多</a>
                                     </div>
                               </div>
                         </div>
@@ -605,12 +608,15 @@
 
                                     <div class="title">
                                           <span> 干货分享</span>
-                                          <img class="lazyload" data-original="./images/share.jpg" src="./images/placeholder.png" style="height:100%" alt="">
+                                          <img class="lazyload" data-original="./images/share.jpg" src="./images/share.jpg" style="height:100%" alt="">
                                           <div class="marker"></div>
                                           <a target="_blank" href="./share.html" class="apoint"></a>
                                     </div>
                                     <div class="body">
-                                          <p>敬请期待……</p>
+                                          <p v-for="(v,i) in articals" v-if="i+1<=4"><a target="_blank" :title="v.title" :href="v.url"><span>{{v.title}}</span></a></p>
+                                    </div>
+                                    <div class="footer">
+                                          <a target="_blank" href="./share.html">...更多</a>
                                     </div>
                               </div>
                         </div>
@@ -669,7 +675,7 @@
                                     </div>
                                     <div>
                                           <img class="wow " style="height:11rem;animation-name:small-to-big" src="./images/image29.jpeg" alt="">
-                                          <p  style="text-indent:0">微店</p>
+                                          <p style="text-indent:0">微店</p>
                                     </div>
                               </div>
                         </div>
@@ -694,6 +700,7 @@
       <script src="js/laro.fsm.js"></script>
       <script src="js/JCanvas.0.1.js"></script>
       <script src="js/home.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
       <!-- <script src="https://cdn.bootcss.com/three.js/r56/three.min.js"></script>
       <script type="text/javascript" src="js/wave.js"></script> -->
@@ -703,7 +710,22 @@
       <script src="js/easySlider.js"></script>
 
       <script src="js/custom.js"></script>
+      <script>
+            var app = new Vue({
+                  el: '#app',
+                  data: {
+                        articals: []
+                  },
+                  mounted: function () {
+                        var that = this
+                        $.get("http://115.159.58.205:8001/articals", function (res) {
 
+                              that.articals = res.data
+                        })
+
+                  }
+            })
+      </script>
 </body>
 
 </html>

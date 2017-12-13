@@ -46,7 +46,6 @@
   height: 60%;
   cursor: pointer;
   opacity: 0;
-  z-index: 99;
 }
 .card {
   width: 100%;
@@ -107,12 +106,29 @@
   flex: 1;
   padding-top: 10px;
 }
+.card .body p {
+  text-indent: 0 !important;
+  padding-left: 30px;
+  padding-right: 20px;
+}
 .card .body span {
   color: #616161;
   font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block !important;
+  text-indent: 0 !important;
+  width: 100%;
 }
 .card .body span:hover {
   text-decoration: underline;
+}
+.card .footer {
+  padding: 10px;
+}
+.card .footer * {
+  float: right;
 }
 ul li {
   list-style: none;
