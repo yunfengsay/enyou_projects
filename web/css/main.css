@@ -22,16 +22,37 @@
 .logoes .cooperate-logo {
   position: relative;
   height: 80px;
-  width: 180px;
-  margin: 10px;
+  width: 80px;
+  margin: 3px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   border: 1px solid #f3f3f3;
+  border-radius: 4px;
 }
 .logoes .cooperate-logo img {
+  width: 80%;
+}
+.seek-logoes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.seek-logoes .cooperate-logo {
+  position: relative;
+  height: 80px;
+  width: 100px;
+  margin: 3px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #f3f3f3;
+  border-radius: 4px;
+}
+.seek-logoes .cooperate-logo img {
   width: 80%;
 }
 .card-container {
