@@ -33,13 +33,20 @@ function changeHomeBgImg(event) {
     activeClass: "active" //小的控制按钮激活的样式，不包括作用两边，默认active
   });
 
-  $("myVideo").each(function() {
+  $(".myVideo").each(function() {
     var sourceFile = $(this).attr("data-src");
     $(this).attr("src", sourceFile);
     var video = this.parentElement;
     video.load();
     video.play();
   });
+  // $("#myVideo2").each(function() {
+  //   var sourceFile = $(this).attr("data-src");
+  //   $(this).attr("src", sourceFile);
+  //   var video = this.parentElement;
+  //   video.load();
+  //   video.play();
+  // });
   // PRE loader
   $(window).load(function() {
     $(".preloader").fadeOut(500); // set duration in brackets
