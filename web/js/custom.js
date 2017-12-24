@@ -40,6 +40,7 @@ function changeHomeBgImg(event) {
     video.load();
     video.play();
   });
+  
   // $("#myVideo2").each(function() {
   //   var sourceFile = $(this).attr("data-src");
   //   $(this).attr("src", sourceFile);
