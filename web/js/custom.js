@@ -1,18 +1,21 @@
 function changeHomeBg(event) {
   $("#home").css("background", $(event.target).val());
 }
+
 function changeHomeBgImg(event) {
   console.log($(event.target).val());
-  $("#home").css({ backgroundImage: $(event.target).val() });
+  $("#home").css({
+    backgroundImage: $(event.target).val()
+  });
 }
 
-(function($) {
+(function ($) {
   //   $(window).on("scroll",function(){
   //     // console.log(( $("#isIn").offset().top - $(this).scrollTop() ) > $(this).height());
   //     console.log($("#second").offset().top - $(this).scrollTop())
   // });
   var $cwbx = $("#cwbx");
-  setInterval(function() {
+  setInterval(function () {
     if ($cwbx.hasClass("active")) {
       $(".navigation").show();
     } else {
@@ -33,14 +36,15 @@ function changeHomeBgImg(event) {
     activeClass: "active" //小的控制按钮激活的样式，不包括作用两边，默认active
   });
 
-  // $(".myVideo").each(function() {
-  //   var sourceFile = $(this).attr("data-src");
-  //   $(this).attr("src", sourceFile);
-  //   var video = this.parentElement;
-  //   video.load();
-  //   video.play();
-  // });
-  
+  $(".myVideo").each(function () {
+    var sourceFile = $(this).attr("data-src");
+    $(this).attr("src", sourceFile);
+    var video = this.parentElement;
+    if (video.load) {
+      video.load();
+      video.play();
+    }
+  });
   // $("#myVideo2").each(function() {
   //   var sourceFile = $(this).attr("data-src");
   //   $(this).attr("src", sourceFile);
@@ -49,7 +53,7 @@ function changeHomeBgImg(event) {
   //   video.play();
   // });
   // PRE loader
-  $(window).load(function() {
+  $(window).load(function () {
     $(".preloader").fadeOut(500); // set duration in brackets
   });
   // $.ajax({
@@ -71,21 +75,21 @@ function changeHomeBgImg(event) {
   // })
 
   //Navigation Section
-  $(".navbar-collapse a").on("click", function() {
+  $(".navbar-collapse a").on("click", function () {
     $(".navbar-collapse").collapse("hide");
   });
 
   var $controlDoms = $(".navigation a");
   var activeDom = null;
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(".navbar").offset().top > 50) {
       $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
       $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
     var that = this;
-    $controlDoms.each(function(i, v) {
+    $controlDoms.each(function (i, v) {
       if (activeDom) {
         activeDom.removeClass("active");
         if ($($(v).attr("href")).offset().top - $(that).scrollTop() < 200) {
@@ -99,16 +103,18 @@ function changeHomeBgImg(event) {
     });
   });
 
-  $(".navigation a").bind("click", function(event) {
+  $(".navigation a").bind("click", function (event) {
     var $anchor = $(this);
-    activeDom.removeClass("active");
-    activeDom = $(event.target).parent();
-    activeDom.addClass("active");
+    if (activeDom) {
+      activeDom.removeClass("active");
+      activeDom = $(event.target).parent();
+      activeDom.addClass("active");
+    }
+
 
     $("html, body")
       .stop()
-      .animate(
-        {
+      .animate({
           scrollTop: $($anchor.attr("href")).offset().top - 70
         },
         500
@@ -116,13 +122,12 @@ function changeHomeBgImg(event) {
     event.preventDefault();
   });
   // Smoothscroll js
-  $(function() {
-    $(".custom-navbar a, #home a").bind("click", function(event) {
+  $(function () {
+    $(".custom-navbar a, #home a").bind("click", function (event) {
       var $anchor = $(this);
       $("html, body")
         .stop()
-        .animate(
-          {
+        .animate({
             scrollTop: $($anchor.attr("href")).offset().top
           },
           500
@@ -140,7 +145,7 @@ function changeHomeBgImg(event) {
       effect: "flipInY",
       delayScale: 1.5,
       delay: 50,
-      callback: function() {}
+      callback: function () {}
     },
     out: {
       effect: "hinge",
@@ -149,9 +154,9 @@ function changeHomeBgImg(event) {
       sync: false,
       shuffle: false,
       reverse: false,
-      callback: function() {}
+      callback: function () {}
     },
-    callback: function() {
+    callback: function () {
       // $('.purpose1').textillate({in:{}})
     },
     // set the type of token to animate (available types: 'char' and 'word')
@@ -159,21 +164,23 @@ function changeHomeBgImg(event) {
   });
 
   // WOW Animation js
-  new WOW({ mobile: false }).init();
+  new WOW({
+    mobile: false
+  }).init();
 })(jQuery);
 
-$(document).ready(function() {
-  (function($) {
+$(document).ready(function () {
+  (function ($) {
     $(".tab ul.tabs")
       .addClass("active")
       .find("> li:eq(0)")
       .addClass("current");
 
-    $(".tab ul.tabs li a").click(function(g) {
+    $(".tab ul.tabs li a").click(function (g) {
       var tab = $(this).closest(".tab"),
         index = $(this)
-          .closest("li")
-          .index();
+        .closest("li")
+        .index();
 
       tab.find("ul.tabs > li").removeClass("current");
       $(this)
@@ -216,38 +223,38 @@ $(document).ready(function() {
   // $('#dowebok').pbTouchSlider({
   //   slider_Wrap: '#dowebokWrap1'
   // });
-  $("#dowebok img").click(function() {
+  $("#dowebok img").click(function () {
     window.open($(this).data("href"));
   });
   $("a[rel=popover]").popover({
     html: true,
     trigger: "click",
     placement: $(this).data("placement"),
-    content: function() {
+    content: function () {
       return '<img src="' + $(this).data("img") + '" />';
     }
   });
 });
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
   var sliderContainers = $(".cd-slider-wrapper");
 
   if (sliderContainers.length > 0) initBlockSlider(sliderContainers);
 
   function initBlockSlider(sliderContainers) {
-    sliderContainers.each(function() {
+    sliderContainers.each(function () {
       var sliderContainer = $(this),
         slides = sliderContainer.children(".cd-slider").children("li"),
         sliderPagination = createSliderPagination(sliderContainer);
 
-      sliderPagination.on("click", function(event) {
+      sliderPagination.on("click", function (event) {
         event.preventDefault();
         var selected = $(this),
           index = selected.index();
         updateSlider(index, sliderPagination, slides);
       });
 
-      sliderContainer.on("swipeleft", function() {
+      sliderContainer.on("swipeleft", function () {
         var bool = enableSwipe(sliderContainer),
           visibleSlide = sliderContainer.find(".is-visible").last(),
           visibleSlideIndex = visibleSlide.index();
@@ -256,7 +263,7 @@ jQuery(document).ready(function($) {
         }
       });
 
-      sliderContainer.on("swiperight", function() {
+      sliderContainer.on("swiperight", function () {
         var bool = enableSwipe(sliderContainer),
           visibleSlide = sliderContainer.find(".is-visible").last(),
           visibleSlideIndex = visibleSlide.index();
@@ -272,9 +279,9 @@ jQuery(document).ready(function($) {
     container
       .children(".cd-slider")
       .find("li")
-      .each(function(index) {
+      .each(function (index) {
         var dotWrapper =
-            index == 0 ? $('<li class="selected"></li>') : $("<li></li>"),
+          index == 0 ? $('<li class="selected"></li>') : $("<li></li>"),
           dot = $('<a href="#0"></a>').appendTo(dotWrapper);
         dotWrapper.appendTo(wrapper);
         var dotText = index + 1 < 10 ? "0" + (index + 1) : index + 1;
@@ -305,7 +312,7 @@ jQuery(document).ready(function($) {
       .addClass("slider-animating")
       .on(
         "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
-        function() {
+        function () {
           $(this).removeClass("slider-animating");
         }
       );
